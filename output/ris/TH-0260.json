@@ -1,0 +1,29 @@
+{
+  "id": "TH-0260",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "directed_vectors",
+    "seed": "TH-0260"
+  },
+  "glyphs": [
+    {
+      "type": "proxy_warfare_support",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "espionage",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "inward_compression"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

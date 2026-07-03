@@ -1,0 +1,29 @@
+{
+  "id": "TH-0210",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "population_cluster",
+    "seed": "TH-0210"
+  },
+  "glyphs": [
+    {
+      "type": "disinformation",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "demoralization",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "structural_fracture"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "TH-0301",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "population_cluster",
+    "seed": "TH-0301"
+  },
+  "glyphs": [
+    {
+      "type": "influence_campaign",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "investment_influence",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "progressive_fading"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "TH-0113",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0113"
+  },
+  "glyphs": [
+    {
+      "type": "resource_denial",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "diplomatic_pressure",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "progressive_fading"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

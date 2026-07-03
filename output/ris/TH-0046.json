@@ -1,0 +1,24 @@
+{
+  "id": "TH-0046",
+  "frame": {
+    "shape": "rounded_rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "bar_stack",
+    "seed": "TH-0046"
+  },
+  "glyphs": [
+    {
+      "type": "policy_sabotage",
+      "priority": 1,
+      "zone": "center"
+    }
+  ],
+  "modifier": {
+    "type": "progressive_fading"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "TH-0120",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0120"
+  },
+  "glyphs": [
+    {
+      "type": "weaponized_migration",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "migration_pressure",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "progressive_fading"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

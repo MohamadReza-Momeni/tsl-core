@@ -1,0 +1,11 @@
+Effect Code,Name,Description
+EFF-01,Loss of Trust,"The degradation or destruction of public/institutional confidence in the integrity, reliability, or legitimacy of a target actor."
+EFF-02,Infrastructure Failure,"The physical or functional breakdown of critical infrastructure systems, rendering them incapable of performing their intended service."
+EFF-03,Economic Loss,"Direct or indirect financial damage, market devaluation, or resource loss suffered by the target entity."
+EFF-04,Political Instability,"A condition where governance is challenged, weakened, or rendered ineffective due to internal conflict, protests, or institutional decay."
+EFF-05,Social Polarization,"The intensification of societal divisions, increasing internal conflict and reducing the capacity for collective action or consensus."
+EFF-06,Information Leakage,"The unauthorized exposure of sensitive, classified, or private information, resulting in loss of confidentiality or competitive advantage."
+EFF-07,Service Disruption,Temporary or permanent interference with the continuity of digital or physical services provided by the target.
+EFF-08,Capability Degradation,"The long-term erosion of a target's ability to develop, maintain, or utilize specific military, technological, or political capabilities."
+EFF-09,Public Fear,"The induction of widespread anxiety, terror, or panic within a population to alter social behavior or force government compliance."
+EFF-10,Dependency Increase,"The strategic creation or exploitation of reliance on the initiating actor for economic, technological, or security needs."

@@ -1,0 +1,29 @@
+{
+  "id": "TH-0189",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "population_cluster",
+    "seed": "TH-0189"
+  },
+  "glyphs": [
+    {
+      "type": "subversion_funding",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "institutional_capture",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "position_jitter"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

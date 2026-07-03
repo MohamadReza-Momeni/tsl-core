@@ -1,0 +1,29 @@
+{
+  "id": "TH-0003",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "radial_network",
+    "seed": "TH-0003"
+  },
+  "glyphs": [
+    {
+      "type": "influence_campaign",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "narrative_manipulation",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "outward_ripple"
+  },
+  "amplifier": {
+    "severity": 2
+  }
+}

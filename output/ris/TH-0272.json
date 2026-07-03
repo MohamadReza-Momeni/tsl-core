@@ -1,0 +1,29 @@
+{
+  "id": "TH-0272",
+  "frame": {
+    "shape": "double_circle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "radial_network",
+    "seed": "TH-0272"
+  },
+  "glyphs": [
+    {
+      "type": "deepfake_distribution",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "disinformation",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "wave_distortion"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

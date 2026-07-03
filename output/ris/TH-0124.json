@@ -1,0 +1,29 @@
+{
+  "id": "TH-0124",
+  "frame": {
+    "shape": "diamond",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0124"
+  },
+  "glyphs": [
+    {
+      "type": "psychological_operations",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "disinformation",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "wave_distortion"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

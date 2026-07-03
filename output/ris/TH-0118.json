@@ -1,0 +1,29 @@
+{
+  "id": "TH-0118",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0118"
+  },
+  "glyphs": [
+    {
+      "type": "protest_mobilization",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "violence_&_riot_incitement",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "position_jitter"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

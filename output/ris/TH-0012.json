@@ -1,0 +1,29 @@
+{
+  "id": "TH-0012",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "radial_network",
+    "seed": "TH-0012"
+  },
+  "glyphs": [
+    {
+      "type": "psychological_operations",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "influence_campaign",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "wave_distortion"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "TH-0184",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "population_cluster",
+    "seed": "TH-0184"
+  },
+  "glyphs": [
+    {
+      "type": "cultural_influence",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "influence_campaign",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "outward_ripple"
+  },
+  "amplifier": {
+    "severity": 2
+  }
+}

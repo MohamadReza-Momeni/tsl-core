@@ -1,0 +1,29 @@
+{
+  "id": "TH-0161",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dash-dot"
+  },
+  "geometry": {
+    "type": "bar_stack",
+    "seed": "TH-0161"
+  },
+  "glyphs": [
+    {
+      "type": "trade_restriction",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "market_manipulation",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "progressive_fading"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

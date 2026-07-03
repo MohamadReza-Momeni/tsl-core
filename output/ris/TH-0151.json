@@ -1,0 +1,24 @@
+{
+  "id": "TH-0151",
+  "frame": {
+    "shape": "inverted_triangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "population_cluster",
+    "seed": "TH-0151"
+  },
+  "glyphs": [
+    {
+      "type": "extremist_radicalization",
+      "priority": 1,
+      "zone": "center"
+    }
+  ],
+  "modifier": {
+    "type": "position_jitter"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

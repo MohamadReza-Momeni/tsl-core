@@ -1,0 +1,29 @@
+{
+  "id": "TH-0112",
+  "frame": {
+    "shape": "rounded_rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0112"
+  },
+  "glyphs": [
+    {
+      "type": "character_assassination",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "diplomatic_pressure",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "position_jitter"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

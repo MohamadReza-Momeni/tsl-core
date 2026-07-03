@@ -1,0 +1,29 @@
+{
+  "id": "TH-0099",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "radial_network",
+    "seed": "TH-0099"
+  },
+  "glyphs": [
+    {
+      "type": "influence_campaign",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "election_interference",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "position_jitter"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

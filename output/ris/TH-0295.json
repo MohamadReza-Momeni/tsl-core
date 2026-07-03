@@ -1,0 +1,29 @@
+{
+  "id": "TH-0295",
+  "frame": {
+    "shape": "diamond",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "grid",
+    "seed": "TH-0295"
+  },
+  "glyphs": [
+    {
+      "type": "cyber_intrusion",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "sabotage",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "radial_burst"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

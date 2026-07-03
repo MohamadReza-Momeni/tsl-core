@@ -1,0 +1,29 @@
+{
+  "id": "TH-0287",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0287"
+  },
+  "glyphs": [
+    {
+      "type": "legal_manipulation",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "economic_sanctions",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "extraction_arrow"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

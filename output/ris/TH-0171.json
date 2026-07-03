@@ -1,0 +1,29 @@
+{
+  "id": "TH-0171",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "bar_stack",
+    "seed": "TH-0171"
+  },
+  "glyphs": [
+    {
+      "type": "trade_restriction",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "diplomatic_pressure",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "boundary_ring"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

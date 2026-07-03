@@ -1,0 +1,29 @@
+{
+  "id": "TH-0146",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0146"
+  },
+  "glyphs": [
+    {
+      "type": "institutional_capture",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "subversion_funding",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "extension_vectors"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "TH-0150",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "radial_network",
+    "seed": "TH-0150"
+  },
+  "glyphs": [
+    {
+      "type": "disinformation",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "narrative_manipulation",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "wave_distortion"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

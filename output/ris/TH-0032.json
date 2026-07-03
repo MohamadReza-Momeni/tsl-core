@@ -1,0 +1,29 @@
+{
+  "id": "TH-0032",
+  "frame": {
+    "shape": "rounded_rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "radial_network",
+    "seed": "TH-0032"
+  },
+  "glyphs": [
+    {
+      "type": "policy_sabotage",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "legal_manipulation",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "progressive_fading"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

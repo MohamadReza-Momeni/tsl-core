@@ -1,0 +1,29 @@
+{
+  "id": "TH-0073",
+  "frame": {
+    "shape": "double_circle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "radial_network",
+    "seed": "TH-0073"
+  },
+  "glyphs": [
+    {
+      "type": "influence_campaign",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "social_polarization",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "structural_fracture"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

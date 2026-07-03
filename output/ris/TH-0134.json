@@ -1,0 +1,24 @@
+{
+  "id": "TH-0134",
+  "frame": {
+    "shape": "rounded_rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0134"
+  },
+  "glyphs": [
+    {
+      "type": "policy_sabotage",
+      "priority": 1,
+      "zone": "center"
+    }
+  ],
+  "modifier": {
+    "type": "progressive_fading"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "TH-0157",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0157"
+  },
+  "glyphs": [
+    {
+      "type": "diplomatic_pressure",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "identity_manipulation",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "structural_fracture"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

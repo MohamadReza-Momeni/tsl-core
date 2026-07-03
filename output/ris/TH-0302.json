@@ -1,0 +1,29 @@
+{
+  "id": "TH-0302",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "grid",
+    "seed": "TH-0302"
+  },
+  "glyphs": [
+    {
+      "type": "sabotage",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "kinetic_strike",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "radial_burst"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

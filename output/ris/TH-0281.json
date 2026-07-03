@@ -1,0 +1,29 @@
+{
+  "id": "TH-0281",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0281"
+  },
+  "glyphs": [
+    {
+      "type": "legal_manipulation",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "economic_sanctions",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "inward_compression"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

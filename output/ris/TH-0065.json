@@ -1,0 +1,29 @@
+{
+  "id": "TH-0065",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "bar_stack",
+    "seed": "TH-0065"
+  },
+  "glyphs": [
+    {
+      "type": "economic_sanctions",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "resource_denial",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "progressive_fading"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

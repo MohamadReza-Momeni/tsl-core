@@ -1,0 +1,24 @@
+{
+  "id": "TH-0242",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "directed_vectors",
+    "seed": "TH-0242"
+  },
+  "glyphs": [
+    {
+      "type": "force_projection",
+      "priority": 1,
+      "zone": "center"
+    }
+  ],
+  "modifier": {
+    "type": "heavy_outline"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

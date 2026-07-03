@@ -1,0 +1,29 @@
+{
+  "id": "TH-0196",
+  "frame": {
+    "shape": "octagon",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "population_cluster",
+    "seed": "TH-0196"
+  },
+  "glyphs": [
+    {
+      "type": "sabotage",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "social_polarization",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "position_jitter"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "TH-0248",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "directed_vectors",
+    "seed": "TH-0248"
+  },
+  "glyphs": [
+    {
+      "type": "undeclared_gray_zone_action",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "force_projection",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "position_jitter"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

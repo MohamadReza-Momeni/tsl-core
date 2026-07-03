@@ -1,0 +1,29 @@
+{
+  "id": "TH-0096",
+  "frame": {
+    "shape": "inverted_triangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "radial_network",
+    "seed": "TH-0096"
+  },
+  "glyphs": [
+    {
+      "type": "extremist_radicalization",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "propaganda",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "extension_vectors"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "TH-0255",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0255"
+  },
+  "glyphs": [
+    {
+      "type": "force_projection",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "diplomatic_pressure",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "inward_compression"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

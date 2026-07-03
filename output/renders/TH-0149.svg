@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="400" height="400" overflow="visible">
+  <defs>
+    <style>
+      .tsl-threat { color: #E74C3C; }
+    </style>
+  </defs>
+  <g class="tsl-threat">
+    
+    <g opacity="0.2" stroke="currentColor" stroke-width="2"><circle cx="50" cy="50" r="30" fill="none" stroke-dasharray="4 4"/><line x1="50" y1="20" x2="50" y2="80"/><line x1="20" y1="50" x2="80" y2="50"/><line x1="28" y1="28" x2="72" y2="72"/><line x1="28" y1="72" x2="72" y2="28"/></g>
+    
+    <g >
+      <rect x="5" y="5" width="90" height="90" fill="none" stroke="currentColor" stroke-width="4" vector-effect="non-scaling-stroke"/>
+    </g>
+    
+    <g transform="translate(25, 25) scale(0.5)">
+      <path d="M 20,50 Q 50,10 80,50" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(35, 5) scale(0.3)">
+      <path d="M 30,80 L 30,50 L 20,50 L 20,20 L 40,20 L 40,50 L 30,50 M 70,80 L 70,50 L 60,50 L 60,20 L 80,20 L 80,50 L 70,50" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <g class="tsl-modifier">
+      <path d="M 0,0 L 5,10 L -5,20 L 5,30" stroke="currentColor" stroke-width="2" fill="none" opacity="0.6"/>
+    </g>
+  </g>
+</svg>

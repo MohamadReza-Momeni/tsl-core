@@ -1,0 +1,29 @@
+{
+  "id": "TH-0088",
+  "frame": {
+    "shape": "pentagon",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "radial_network",
+    "seed": "TH-0088"
+  },
+  "glyphs": [
+    {
+      "type": "influence_campaign",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "disinformation",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "position_jitter"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

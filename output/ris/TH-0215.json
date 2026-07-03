@@ -1,0 +1,24 @@
+{
+  "id": "TH-0215",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "population_cluster",
+    "seed": "TH-0215"
+  },
+  "glyphs": [
+    {
+      "type": "cultural_influence",
+      "priority": 1,
+      "zone": "center"
+    }
+  ],
+  "modifier": {
+    "type": "position_jitter"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

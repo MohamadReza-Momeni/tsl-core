@@ -1,0 +1,29 @@
+{
+  "id": "TH-0114",
+  "frame": {
+    "shape": "pentagon",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0114"
+  },
+  "glyphs": [
+    {
+      "type": "protest_mobilization",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "narrative_manipulation",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "position_jitter"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "TH-0024",
+  "frame": {
+    "shape": "diamond",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "radial_network",
+    "seed": "TH-0024"
+  },
+  "glyphs": [
+    {
+      "type": "data_harvesting_&_microtargeting",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "psychological_operations",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "extraction_arrow"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

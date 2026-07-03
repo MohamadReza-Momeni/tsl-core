@@ -1,0 +1,29 @@
+{
+  "id": "TH-0093",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "radial_network",
+    "seed": "TH-0093"
+  },
+  "glyphs": [
+    {
+      "type": "information_suppression",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "denial_of_service",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "inward_compression"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

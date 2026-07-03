@@ -1,0 +1,24 @@
+{
+  "id": "TH-0179",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0179"
+  },
+  "glyphs": [
+    {
+      "type": "diplomatic_pressure",
+      "priority": 1,
+      "zone": "center"
+    }
+  ],
+  "modifier": {
+    "type": "heavy_outline"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

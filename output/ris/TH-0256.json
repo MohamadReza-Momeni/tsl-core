@@ -1,0 +1,29 @@
+{
+  "id": "TH-0256",
+  "frame": {
+    "shape": "pentagon",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "directed_vectors",
+    "seed": "TH-0256"
+  },
+  "glyphs": [
+    {
+      "type": "proxy_warfare_support",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "sabotage",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "position_jitter"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

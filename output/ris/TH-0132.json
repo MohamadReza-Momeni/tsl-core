@@ -1,0 +1,29 @@
+{
+  "id": "TH-0132",
+  "frame": {
+    "shape": "diamond",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0132"
+  },
+  "glyphs": [
+    {
+      "type": "sabotage",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "disinformation",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "wave_distortion"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

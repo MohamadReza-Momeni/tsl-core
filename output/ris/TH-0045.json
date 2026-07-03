@@ -1,0 +1,29 @@
+{
+  "id": "TH-0045",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dash-dot"
+  },
+  "geometry": {
+    "type": "bar_stack",
+    "seed": "TH-0045"
+  },
+  "glyphs": [
+    {
+      "type": "resource_denial",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "trade_restriction",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "inward_compression"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

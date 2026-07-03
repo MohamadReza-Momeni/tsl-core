@@ -1,0 +1,29 @@
+{
+  "id": "TH-0067",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "bar_stack",
+    "seed": "TH-0067"
+  },
+  "glyphs": [
+    {
+      "type": "narrative_manipulation",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "policy_sabotage",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "position_jitter"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

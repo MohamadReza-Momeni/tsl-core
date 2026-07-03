@@ -1,0 +1,13 @@
+Intent Code,Name,Description
+INT-01,Destabilize,"Actions designed to undermine the internal stability, order, or legitimacy of a state or organization."
+INT-02,Influence,"Actions aimed at altering the opinions, attitudes, or decisions of a target audience to align with the actor's goals."
+INT-03,Control,"Actions intended to exert direct authority or dominance over a target's resources, policy, or decision-making process."
+INT-04,Divide,"Actions designed to create, amplify, or exploit internal fissures within a society, organization, or alliance."
+INT-05,Deceive,Actions intended to provide false information or create false perceptions to mislead a target for strategic advantage.
+INT-06,Delay,"Actions aimed at slowing down processes, decisions, or the development of target capabilities."
+INT-07,Intimidate,"Actions used to coerce a target through fear, threats, or the credible threat of violence/harm."
+INT-08,Steal,"Actions intended to illicitly obtain information, intellectual property, assets, or resources."
+INT-09,Destroy,"Actions aimed at permanently disabling, damaging, or removing a target's physical or digital capabilities."
+INT-10,Exploit,"Actions aimed at utilizing a target's existing weaknesses or vulnerabilities for strategic, political, or economic gain."
+INT-11,Exhaust,"Actions designed to wear down a target's resources, patience, or operational endurance over time."
+INT-12,Isolate,"Actions aimed at severing a target's ties, alliances, or communications to weaken its position or influence."

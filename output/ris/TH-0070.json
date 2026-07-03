@@ -1,0 +1,29 @@
+{
+  "id": "TH-0070",
+  "frame": {
+    "shape": "diamond",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "radial_network",
+    "seed": "TH-0070"
+  },
+  "glyphs": [
+    {
+      "type": "cyber_intrusion",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "denial_of_service",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "wave_distortion"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

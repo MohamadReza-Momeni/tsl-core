@@ -1,0 +1,29 @@
+{
+  "id": "TH-0283",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0283"
+  },
+  "glyphs": [
+    {
+      "type": "legal_manipulation",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "narrative_manipulation",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "outward_ripple"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

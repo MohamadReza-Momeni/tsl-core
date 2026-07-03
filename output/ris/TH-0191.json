@@ -1,0 +1,29 @@
+{
+  "id": "TH-0191",
+  "frame": {
+    "shape": "pentagon",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "population_cluster",
+    "seed": "TH-0191"
+  },
+  "glyphs": [
+    {
+      "type": "violence_&_riot_incitement",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "social_polarization",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "position_jitter"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

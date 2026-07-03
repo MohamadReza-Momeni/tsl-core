@@ -1,0 +1,24 @@
+{
+  "id": "TH-0204",
+  "frame": {
+    "shape": "pentagon",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "population_cluster",
+    "seed": "TH-0204"
+  },
+  "glyphs": [
+    {
+      "type": "protest_mobilization",
+      "priority": 1,
+      "zone": "center"
+    }
+  ],
+  "modifier": {
+    "type": "outward_ripple"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

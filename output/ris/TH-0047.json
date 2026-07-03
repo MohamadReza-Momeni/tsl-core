@@ -1,0 +1,29 @@
+{
+  "id": "TH-0047",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dash-dot"
+  },
+  "geometry": {
+    "type": "bar_stack",
+    "seed": "TH-0047"
+  },
+  "glyphs": [
+    {
+      "type": "market_manipulation",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "influence_campaign",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "structural_fracture"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "TH-0265",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "bar_stack",
+    "seed": "TH-0265"
+  },
+  "glyphs": [
+    {
+      "type": "economic_sanctions",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "trade_restriction",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "clockwise_rotation_offset"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

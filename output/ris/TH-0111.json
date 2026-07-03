@@ -1,0 +1,29 @@
+{
+  "id": "TH-0111",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0111"
+  },
+  "glyphs": [
+    {
+      "type": "diplomatic_pressure",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "international_forum_manipulation",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "boundary_ring"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

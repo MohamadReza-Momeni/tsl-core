@@ -1,0 +1,29 @@
+{
+  "id": "TH-0225",
+  "frame": {
+    "shape": "diamond",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0225"
+  },
+  "glyphs": [
+    {
+      "type": "espionage",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "diplomatic_pressure",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "heavy_outline"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

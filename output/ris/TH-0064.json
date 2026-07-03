@@ -1,0 +1,29 @@
+{
+  "id": "TH-0064",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "bar_stack",
+    "seed": "TH-0064"
+  },
+  "glyphs": [
+    {
+      "type": "strategic_asset_acquisition",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "influence_campaign",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "inward_compression"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

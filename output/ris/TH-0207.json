@@ -1,0 +1,29 @@
+{
+  "id": "TH-0207",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "population_cluster",
+    "seed": "TH-0207"
+  },
+  "glyphs": [
+    {
+      "type": "identity_manipulation",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "social_polarization",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "structural_fracture"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "TH-0023",
+  "frame": {
+    "shape": "hexagon",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "radial_network",
+    "seed": "TH-0023"
+  },
+  "glyphs": [
+    {
+      "type": "educational_co_optation",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "psychological_operations",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "extension_vectors"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

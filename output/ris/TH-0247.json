@@ -1,0 +1,29 @@
+{
+  "id": "TH-0247",
+  "frame": {
+    "shape": "diamond",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "directed_vectors",
+    "seed": "TH-0247"
+  },
+  "glyphs": [
+    {
+      "type": "kinetic_strike",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "espionage",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "radial_burst"
+  },
+  "amplifier": {
+    "severity": 5
+  }
+}

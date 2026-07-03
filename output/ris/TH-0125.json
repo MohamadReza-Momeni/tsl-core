@@ -1,0 +1,29 @@
+{
+  "id": "TH-0125",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dash-dot"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0125"
+  },
+  "glyphs": [
+    {
+      "type": "narrative_manipulation",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "demoralization",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "position_jitter"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

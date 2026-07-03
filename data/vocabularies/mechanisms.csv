@@ -1,0 +1,53 @@
+Mechanism Code,Name,Description
+MEC-101,Propaganda,The dissemination of information—biased or misleading—to promote a political cause or point of view.
+MEC-102,Disinformation,Deliberately creating and spreading false information to deceive and harm target audiences.
+MEC-103,Misinformation,"Spreading false information without the intent to deceive, often due to error or lack of verification."
+MEC-104,Narrative Manipulation,The strategic framing or reframing of events to control how target audiences perceive reality.
+MEC-105,Psychological Operations,"Operations aimed at influencing the emotions, motives, objective reasoning, and behavior of foreign governments, organizations, and individuals."
+MEC-106,Deepfake Distribution,"The use of AI-generated audio/video to create convincing, fraudulent content of real individuals."
+MEC-107,Censorship,"The suppression of speech, public communication, or other information on the basis that such material is considered objectionable, harmful, or sensitive."
+MEC-108,Information Suppression,Deliberately withholding or burying specific information to prevent it from reaching the target population.
+MEC-109,Influence Campaign,"A coordinated effort to influence the opinions, attitudes, or behavior of a target audience over time."
+MEC-110,Rumor Propagation,"The systematic spreading of unverified information to sow discord, fear, or uncertainty."
+MEC-111,Character Assassination,"Deliberate smearing of political opponents, leaders, or institutions to erode trust."
+MEC-112,Demoralization,"Systematically belittling a nation's achievements, culture, or history to induce hopelessness."
+MEC-113,Educational Co-optation,"Using scholarships, academic funding, or university partnerships to build foreign influence networks."
+MEC-201,Cyber Intrusion,"Unauthorized access to a computer system or network to steal, alter, or damage data."
+MEC-202,Malware Deployment,"The use of malicious software to compromise, control, or destroy computer systems."
+MEC-203,Data Exfiltration,The unauthorized transfer of data from a computer or other device.
+MEC-204,Denial of Service,An attempt to make a machine or network resource unavailable to its intended users.
+MEC-205,Credential Theft,Stealing usernames and passwords to gain unauthorized access to accounts or systems.
+MEC-206,Supply Chain Compromise,Inserting malicious code into products or software during the production/distribution process.
+MEC-207,Data Harvesting & Microtargeting,Mass collection of user data specifically to weaponize cognitive campaigns through highly personalized messaging.
+MEC-208,Algorithmic Manipulation,Exploiting search engines or social media algorithms to bury positive information or amplify negative sentiment.
+MEC-301,Economic Sanctions,"Commercial and financial penalties applied by one or more countries against a targeted self-governing state, group, or individual."
+MEC-302,Market Manipulation,Artificially inflating or deflating the price of a security or otherwise influencing the behavior of the market for personal gain or strategic disruption.
+MEC-303,Currency Manipulation,Intentional interference in the foreign exchange market to gain an unfair competitive advantage or cause economic destabilization.
+MEC-304,Resource Denial,"Preventing access to critical resources like fuel, water, or raw materials."
+MEC-305,Investment Influence,Using foreign investment (FDI) as a means to gain political or economic leverage over a target government.
+MEC-306,Trade Restriction,Limiting the import or export of goods to exert political or economic pressure.
+MEC-307,Strategic Asset Acquisition,"Covert or overt purchase of real estate, ports, or utilities by foreign actors for strategic leverage rather than commercial gain."
+MEC-308,Subversion Funding,"Providing financial support to domestic destabilizing organizations, violent groups, or opposition networks."
+MEC-309,Policy Sabotage,Exploiting or intentionally inducing a lack of executive economic policies or regulatory failure to weaken the target state.
+MEC-401,Diplomatic Pressure,"Using official state channels to coerce, threaten, or isolate a target state."
+MEC-402,Election Interference,Coordinated efforts to alter the outcome of an electoral process.
+MEC-403,Institutional Capture,Infiltrating or corrupting key government institutions to align them with foreign interests.
+MEC-404,Legal Manipulation,"Using national or international laws (lawfare) as a tool to harass, punish, or restrict target actors."
+MEC-405,Crisis Exploitation,"Weaponizing an existing, unrelated domestic crisis to push a hostile agenda."
+MEC-406,International Forum Manipulation,"Using international bodies (e.g., UN) to legally or diplomatically isolate the target."
+MEC-407,Border Provocation,Utilizing border disputes to manufacture tension without formal kinetic strikes.
+MEC-501,Kinetic Strike,"Direct military attack, ranging from tactical raids to large-scale bombardment."
+MEC-502,Sabotage,"Deliberate destruction, damage, or obstruction of assets, systems, or infrastructure."
+MEC-503,Espionage,Clandestine collection of sensitive information.
+MEC-504,Force Projection,"The ability to project military force over a distance to influence events, intimidate, or strike."
+MEC-505,Coercive Deployment,Positioning military forces to intimidate or compel a target into specific political behaviors.
+MEC-506,Undeclared Gray-Zone Action,Military or paramilitary actions intentionally kept below the threshold of formal war declarations.
+MEC-507,Proxy Warfare Support,"Arming, training, or advising non-state militias to engage the target militarily."
+MEC-601,Social Polarization,"Systematically intensifying divisions within a society based on ideology, race, religion, or class."
+MEC-602,Identity Manipulation,"Exploiting cultural, ethnic, or historical identity markers to create internal friction."
+MEC-603,Cultural Influence,"The systematic promotion of foreign values, arts, or lifestyle to erode domestic cultural integrity."
+MEC-604,Protest Mobilization,Coordinating and inciting large-scale public demonstrations to challenge governance.
+MEC-605,Migration Pressure,Orchestrating or forcing refugee movement to overwhelm a target's social and economic resources.
+MEC-606,Violence & Riot Incitement,Actively pushing peaceful social movements into physical violence or riots.
+MEC-607,Weaponized Migration,Using migration flows as a deliberate instrument of statecraft to destabilize a target country.
+MEC-608,Extremist Radicalization,Actively grooming fringe elements of society into domestic terrorist or subversive factions.

@@ -1,0 +1,29 @@
+{
+  "id": "TH-0257",
+  "frame": {
+    "shape": "rectangle",
+    "border": "solid"
+  },
+  "geometry": {
+    "type": "directed_vectors",
+    "seed": "TH-0257"
+  },
+  "glyphs": [
+    {
+      "type": "force_projection",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "diplomatic_pressure",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "heavy_outline"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

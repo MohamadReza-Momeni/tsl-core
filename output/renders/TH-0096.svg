@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="400" height="400" overflow="visible">
+  <defs>
+    <style>
+      .tsl-threat { color: #8E44AD; }
+    </style>
+  </defs>
+  <g class="tsl-threat">
+    
+    <g opacity="0.2" stroke="currentColor" stroke-width="2"><circle cx="50" cy="50" r="30" fill="none" stroke-dasharray="4 4"/><line x1="50" y1="20" x2="50" y2="80"/><line x1="20" y1="50" x2="80" y2="50"/><line x1="28" y1="28" x2="72" y2="72"/><line x1="28" y1="72" x2="72" y2="28"/></g>
+    
+    <g >
+      <polygon points="5,5 95,5 50,95" fill="none" stroke="currentColor" stroke-width="4" vector-effect="non-scaling-stroke"/>
+    </g>
+    
+    <g transform="translate(35, 5) scale(0.3)">
+      <path d="M 20,50 L 50,20 L 50,80 L 20,50 Z M 50,50 L 80,50" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <g class="tsl-modifier">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"><line x1="85" y1="15" x2="110" y2="-10"/><line x1="15" y1="85" x2="-10" y2="110"/></g>
+    </g>
+  </g>
+</svg>

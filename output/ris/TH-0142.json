@@ -1,0 +1,29 @@
+{
+  "id": "TH-0142",
+  "frame": {
+    "shape": "diamond",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "connected_chain",
+    "seed": "TH-0142"
+  },
+  "glyphs": [
+    {
+      "type": "data_exfiltration",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "espionage",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "extraction_arrow"
+  },
+  "amplifier": {
+    "severity": 4
+  }
+}

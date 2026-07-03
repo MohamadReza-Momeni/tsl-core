@@ -1,0 +1,29 @@
+{
+  "id": "TH-0169",
+  "frame": {
+    "shape": "rectangle",
+    "border": "dashed"
+  },
+  "geometry": {
+    "type": "radial_network",
+    "seed": "TH-0169"
+  },
+  "glyphs": [
+    {
+      "type": "information_suppression",
+      "priority": 1,
+      "zone": "center"
+    },
+    {
+      "type": "demoralization",
+      "priority": 2,
+      "zone": "north"
+    }
+  ],
+  "modifier": {
+    "type": "progressive_fading"
+  },
+  "amplifier": {
+    "severity": 3
+  }
+}

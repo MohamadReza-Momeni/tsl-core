@@ -1,63 +1,93 @@
 import os
 
-# Define the library mapping: Mechanism Name -> SVG Path Data
-# All paths are designed for a 100x100 viewBox with a 6px stroke width.
-GLYPHS = {
-    # DOM-01: Information & Cognitive (MEC-1xx)
-    "propaganda": "M 20,50 L 50,20 L 50,80 L 20,50 Z M 50,50 L 80,50",
-    "disinformation": "M 50,50 m -30,0 a 30,30 0 1,0 60,0 a 30,30 0 1,0 -60,0 Z M 25,25 L 75,75",
-    "narrative_manipulation": "M 20,50 Q 50,10 80,50",
-    "psychological_ops": "M 20,50 A 30,30 0 1,0 80,50 A 30,30 0 1,0 20,50 M 50,30 L 50,70",
-    
-    # DOM-06: Infrastructure & Technology / Cyber (MEC-2xx)
-    "cyber_intrusion": "M 50,10 L 30,50 L 50,50 L 30,90 L 70,50 L 50,50 L 70,10 Z",
-    "denial_of_service": "M 20,30 L 80,30 L 80,70 L 20,70 Z M 20,50 L 80,50",
-    
-    # DOM-02: Economic (MEC-3xx)
-    "economic_sanctions": "M 50,20 L 50,80 M 30,35 L 70,35 M 30,65 L 70,65 M 20,50 L 80,50 M 50,50 A 20,20 0 1,0 49.9,50",
-    "resource_denial": "M 50,20 L 50,80 M 20,50 L 80,50 M 25,25 L 75,75 M 25,75 L 75,25",
+# Base styling wrapper for all glyphs to ensure consistency
+# stroke="currentColor" ensures they automatically adopt the Severity Color (Red, Yellow, etc.)
+WRAPPER_START = '<g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">'
+WRAPPER_END = '</g>'
 
-    # DOM-03: Political & Diplomatic (MEC-4xx)
-    "diplomatic_pressure": "M 30,50 L 70,50 M 50,30 L 50,70 M 20,20 L 80,80",
-    "election_interference": "M 20,80 L 40,80 L 40,40 L 20,40 Z M 50,80 L 70,80 L 70,20 L 50,20 Z M 20,60 L 80,60",
-    "legal_manipulation": "M 50,20 L 50,80 M 30,40 L 70,40 M 30,60 L 70,60 M 40,20 L 60,20",
+# The complete library of 47 Mechanism Glyphs
+RAW_GLYPHS = {
+    # === DOMAIN 1: INFORMATION & COGNITIVE ===
+    "propaganda": '<path d="M 30,45 L 50,45 L 80,20 L 80,80 L 50,55 L 30,55 Z"/><path d="M 20,40 C 10,45 10,55 20,60"/>', # Megaphone
+    "disinformation": '<circle cx="50" cy="50" r="30"/><line x1="25" y1="25" x2="75" y2="75"/>', # Crossed-out circle
+    "misinformation": '<circle cx="50" cy="50" r="30"/><path d="M 40,40 C 40,30 60,30 60,40 C 60,50 50,50 50,60"/><circle cx="50" cy="70" r="2" fill="currentColor"/>', # Question mark in circle
+    "narrative_manipulation": '<path d="M 20,20 Q 50,80 80,20"/><path d="M 20,80 Q 50,20 80,80"/>', # Twisted / crossing lines
+    "psychological_operations": '<circle cx="50" cy="50" r="20"/><path d="M 20,50 Q 50,10 80,50 Q 50,90 20,50 Z"/>', # Eye / Mind symbol
+    "deepfake_distribution": '<rect x="20" y="20" width="40" height="40" rx="10"/><rect x="40" y="40" width="40" height="40" rx="10" stroke-dasharray="4 4"/>', # Overlapping masked frames
+    "censorship": '<rect x="20" y="40" width="60" height="40" rx="5"/><path d="M 35,40 L 35,25 Q 50,10 65,25 L 65,40"/>', # Padlock
+    "information_suppression": '<line x1="20" y1="80" x2="80" y2="80"/><line x1="50" y1="20" x2="50" y2="70"/><polyline points="35,55 50,70 65,55"/>', # Heavy downward arrow hitting a barrier
+    "influence_campaign": '<circle cx="50" cy="50" r="10"/><path d="M 30,30 Q 50,10 70,30 M 20,20 Q 50,-10 80,20 M 30,70 Q 50,90 70,70 M 20,80 Q 50,110 80,80"/>', # Broadcast waves
+    "rumor_propagation": '<circle cx="50" cy="50" r="10"/><polyline points="50,40 20,20 20,40 M 20,20 L 40,20"/><polyline points="60,60 80,80 60,80 M 80,80 L 80,60"/>', # Branching viral spread
+    "character_assassination": '<circle cx="50" cy="35" r="15"/><path d="M 25,85 Q 50,55 75,85"/><line x1="10" y1="50" x2="90" y2="50"/>', # Person slashed
+    "demoralization": '<path d="M 50,30 C 50,10 20,10 20,40 Q 20,60 50,85 Q 80,60 80,40 C 80,10 50,10 50,30 Z"/><polyline points="50,20 40,50 60,60 50,85"/>', # Broken heart
+    "educational_co_optation": '<polygon points="50,25 20,40 50,55 80,40"/><line x1="50" y1="55" x2="50" y2="80"/><line x1="80" y1="40" x2="80" y2="70"/>', # Graduation cap / Institution
 
-    # DOM-05: Military (MEC-5xx)
-    "kinetic_strike": "M 50,10 L 50,90 M 10,50 L 90,50 M 20,20 L 80,80 M 20,80 L 80,20",
-    "sabotage": "M 20,80 L 80,20 M 20,20 L 80,80",
-    "espionage": "M 50,20 C 20,20 10,50 10,50 C 10,50 20,80 50,80 C 80,80 90,50 90,50 C 90,50 80,20 50,20 Z M 50,65 A 15,15 0 1,0 50,35 A 15,15 0 1,0 50,65 Z",
-    "force_projection": "M 20,50 L 80,50 M 60,30 L 80,50 L 60,70",
-    "proxy_warfare_support": "M 30,80 L 30,20 L 70,50 Z M 10,50 L 30,50 M 10,30 L 30,30 M 10,70 L 30,70",
+    # === DOMAIN 2: CYBER & INFRASTRUCTURE ===
+    "cyber_intrusion": '<path d="M 20,20 L 80,20 L 80,50 Q 50,90 20,50 Z"/><polyline points="50,10 50,60 30,40 M 50,60 L 70,40"/>', # Arrow breaching a shield
+    "data_exfiltration": '<rect x="20" y="30" width="60" height="50"/><polyline points="20,30 35,15 55,15 65,30"/><polyline points="50,70 50,30 35,45 M 50,30 L 65,45"/>', # Folder with arrow OUT
+    "denial_of_service": '<rect x="25" y="15" width="50" height="20"/><rect x="25" y="40" width="50" height="20"/><rect x="25" y="65" width="50" height="20"/><line x1="15" y1="15" x2="85" y2="85"/>', # Slashed server rack
+    "credential_theft": '<circle cx="35" cy="50" r="15"/><line x1="50" y1="50" x2="85" y2="50"/><line x1="65" y1="50" x2="65" y2="65"/><line x1="80" y1="50" x2="80" y2="65"/>', # Key icon
+    "supply_chain_compromise": '<rect x="15" y="40" width="20" height="20"/><rect x="40" y="40" width="20" height="20" stroke-dasharray="2 2"/><rect x="65" y="40" width="20" height="20"/><line x1="35" y1="50" x2="40" y2="50"/><line x1="60" y1="50" x2="65" y2="50"/>', # Linked boxes, center compromised
+    "data_harvesting_&_microtargeting": '<circle cx="50" cy="50" r="30" stroke-dasharray="4 4"/><circle cx="50" cy="50" r="10"/><line x1="50" y1="10" x2="50" y2="90"/><line x1="10" y1="50" x2="90" y2="50"/>', # Crosshair grid
 
-    # DOM-04: Social (MEC-6xx)
-    "social_polarization": "M 50,10 L 50,90 M 20,30 L 40,30 M 20,70 L 40,70 M 60,30 L 80,30 M 60,70 L 80,70",
-    "protest_mobilization": "M 30,80 L 30,50 L 20,50 L 20,20 L 40,20 L 40,50 L 30,50 M 70,80 L 70,50 L 60,50 L 60,20 L 80,20 L 80,50 L 70,50",
-    "violence_riot_incitement": "M 50,80 L 50,50 L 30,20 M 50,50 L 70,20 M 20,50 L 80,50"
+    # === DOMAIN 3: ECONOMIC ===
+    "economic_sanctions": '<circle cx="50" cy="50" r="35"/><path d="M 40,25 Q 60,25 60,40 Q 40,60 40,75 Q 60,75 60,75"/><line x1="50" y1="15" x2="50" y2="85"/><line x1="15" y1="15" x2="85" y2="85"/>', # Currency slashed
+    "market_manipulation": '<polyline points="15,80 40,60 60,70 85,30"/><polyline points="70,30 85,30 85,45"/><line x1="85" y1="30" x2="65" y2="10"/>', # Artificial chart spike
+    "currency_manipulation": '<circle cx="35" cy="50" r="20"/><circle cx="65" cy="50" r="20"/><line x1="35" y1="20" x2="35" y2="80"/><line x1="65" y1="20" x2="65" y2="80"/>', # Linked coins / exchange warp
+    "resource_denial": '<path d="M 50,15 C 80,45 80,85 50,85 C 20,85 20,45 50,15 Z"/><line x1="25" y1="25" x2="75" y2="75"/>', # Droplet (resource) slashed
+    "investment_influence": '<polyline points="20,70 50,40 80,50"/><circle cx="80" cy="50" r="5"/><path d="M 10,90 Q 50,90 90,70"/>', # Chart line hovering over a hand/base
+    "trade_restriction": '<rect x="20" y="30" width="60" height="40"/><line x1="20" y1="50" x2="80" y2="50"/><line x1="10" y1="10" x2="90" y2="90"/>', # Shipping box slashed
+    "strategic_asset_acquisition": '<rect x="25" y="45" width="50" height="40"/><polyline points="25,45 50,20 75,45"/><rect x="40" y="65" width="20" height="20"/><circle cx="50" cy="35" r="5"/>', # Factory/Building marked
+    "subversion_funding": '<path d="M 30,85 Q 10,85 20,50 C 30,20 40,20 50,20 C 60,20 70,20 80,50 Q 90,85 70,85 Z"/><line x1="45" y1="40" x2="45" y2="60"/><line x1="55" y1="40" x2="55" y2="60"/>', # Money bag
+    "policy_sabotage": '<rect x="25" y="15" width="50" height="70"/><line x1="35" y1="35" x2="65" y2="35"/><line x1="35" y1="50" x2="65" y2="50"/><line x1="15" y1="75" x2="85" y2="25"/>', # Document slashed
+
+    # === DOMAIN 4: DIPLOMATIC & POLITICAL ===
+    "diplomatic_pressure": '<rect x="20" y="35" width="30" height="30" rx="5"/><rect x="50" y="35" width="30" height="30" rx="5"/><line x1="50" y1="35" x2="50" y2="65" stroke-dasharray="4 4"/>', # Forced block meeting
+    "election_interference": '<rect x="20" y="30" width="60" height="50"/><line x1="20" y1="30" x2="40" y2="10"/><line x1="80" y1="30" x2="60" y2="10"/><line x1="40" y1="10" x2="60" y2="10"/><path d="M 40,55 L 60,55 M 50,45 L 50,65"/>', # Ballot box being altered
+    "institutional_capture": '<polyline points="15,40 50,15 85,40"/><rect x="25" y="40" width="10" height="40"/><rect x="45" y="40" width="10" height="40"/><rect x="65" y="40" width="10" height="40"/><line x1="15" y1="80" x2="85" y2="80"/><circle cx="50" cy="50" r="40" stroke-dasharray="4 4"/>', # Govt building inside a net
+    "legal_manipulation": '<line x1="50" y1="20" x2="50" y2="80"/><line x1="20" y1="40" x2="80" y2="25"/><polyline points="20,40 10,60 30,60 Z"/><polyline points="80,25 70,45 90,45 Z"/>', # Tipped scales of justice
+    "crisis_exploitation": '<polyline points="50,15 15,80 85,80 Z"/><line x1="50" y1="40" x2="50" y2="60"/><circle cx="50" cy="70" r="2" fill="currentColor"/><polyline points="85,15 100,15 100,30 M 100,15 L 70,45"/>', # Warning sign + Upward graph
+    "international_forum_manipulation": '<circle cx="50" cy="50" r="35"/><ellipse cx="50" cy="50" rx="35" ry="15"/><line x1="50" y1="15" x2="50" y2="85"/><rect x="35" y="35" width="30" height="30" fill="currentColor"/>', # Globe corrupted
+    "border_provocation": '<line x1="20" y1="50" x2="80" y2="50" stroke-dasharray="6 6"/><polyline points="40,20 50,35 60,20"/><polyline points="40,80 50,65 60,80"/>', # Opposing arrows at a dashed border
+
+    # === DOMAIN 5: MILITARY & PHYSICAL ===
+    "kinetic_strike": '<path d="M 20,80 L 80,20 M 60,20 L 80,20 L 80,40"/><path d="M 30,70 L 15,85 L 25,95 L 40,80 Z"/>', # Missile impact
+    "sabotage": '<path d="M 30,30 L 70,70 M 70,30 L 30,70"/>', # Simple Cross / X (tactical)
+    "espionage": '<path d="M 15,50 Q 50,20 85,50 Q 50,80 15,50 Z"/><circle cx="50" cy="50" r="12"/>', # Eye
+    "force_projection": '<polyline points="20,20 60,50 20,80"/><polyline points="40,20 80,50 40,80"/>', # Double chevrons forward
+    "undeclared_gray_zone_action": '<rect x="20" y="20" width="60" height="60" stroke-dasharray="4 4"/><path d="M 40,40 C 40,30 60,30 60,40 C 60,50 50,50 50,60"/><circle cx="50" cy="70" r="2" fill="currentColor"/>', # Question mark in dashed box
+    "proxy_warfare_support": '<circle cx="35" cy="50" r="10"/><circle cx="65" cy="50" r="10"/><line x1="35" y1="20" x2="35" y2="40" stroke-dasharray="2 2"/><line x1="65" y1="20" x2="65" y2="40" stroke-dasharray="2 2"/>', # Two actors on puppet strings
+
+    # === DOMAIN 6: SOCIAL ===
+    "social_polarization": '<line x1="50" y1="15" x2="50" y2="85"/><polyline points="35,35 15,50 35,65 M 15,50 L 45,50"/><polyline points="65,35 85,50 65,65 M 85,50 L 55,50"/>', # Arrows pushing away from center wall
+    "identity_manipulation": '<circle cx="50" cy="50" r="35"/><circle cx="50" cy="50" r="20"/><circle cx="50" cy="50" r="5"/><line x1="15" y1="50" x2="85" y2="50"/>', # Fingerprint / Target slashed
+    "cultural_influence": '<polyline points="20,80 50,20 80,80"/><rect x="35" y="80" width="30" height="10"/><circle cx="50" cy="40" r="8"/>', # Monument/Temple symbol
+    "protest_mobilization": '<path d="M 35,70 L 35,40 C 35,30 45,30 45,40 L 45,70 M 45,45 C 45,35 55,35 55,45 L 55,70 M 55,50 C 55,40 65,40 65,50 L 65,70 C 65,85 35,85 35,70 Z"/><line x1="50" y1="70" x2="50" y2="95"/>', # Raised Fist
+    "migration_pressure": '<polyline points="20,35 80,35 80,50"/><polyline points="20,65 80,65 80,50"/><line x1="80" y1="20" x2="80" y2="80" stroke-dasharray="4 4"/>', # Flow lines hitting a dashed border
+    "violence_&_riot_incitement": '<path d="M 50,15 C 20,40 20,85 50,85 C 80,85 80,40 50,15 Z"/><path d="M 50,45 C 40,60 40,85 50,85"/>', # Flame
+    "weaponized_migration": '<polyline points="20,70 50,40 80,70"/><line x1="50" y1="80" x2="50" y2="15"/><polyline points="35,30 50,15 65,30"/>', # Migration flow converging into a spearhead
+    "extremist_radicalization": '<path d="M 50,50 L 20,20 M 50,50 L 80,20 M 50,50 L 20,80 M 50,50 L 80,80"/><circle cx="50" cy="50" r="15"/>' # Radical fracture / sharp spiral
 }
 
-def generate_glyph(name, path_data, output_dir):
-    """Wraps the path data in a standard TSL SVG container and saves it."""
-    svg_content = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <path d="{path_data}" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>'''
-    
-    filepath = os.path.join(output_dir, f"{name}.svg")
-    with open(filepath, 'w', encoding='utf-8') as f:
-        f.write(svg_content)
-    print(f"[+] Generated: {filepath}")
-
-if __name__ == "__main__":
-    # Ensure the target directory exists relative to the script execution
-    target_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../assets/glyphs"))
-    os.makedirs(target_dir, exist_ok=True)
-    
-    print(f"Generating TSL-202B Glyphs into: {target_dir}")
-    print("-" * 50)
-    
+def generate_glyphs(output_dir):
+    os.makedirs(output_dir, exist_ok=True)
     count = 0
-    for name, path in GLYPHS.items():
-        generate_glyph(name, path, target_dir)
+    for name, path_data in RAW_GLYPHS.items():
+        # Cleanly format the filename based on the dictionary key
+        filename = f"{name}.svg"
+        
+        # Assemble the full SVG file
+        full_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">\n  {WRAPPER_START}\n    {path_data}\n  {WRAPPER_END}\n</svg>'''
+        
+        # Write to disk
+        filepath = os.path.join(output_dir, filename)
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(full_svg)
         count += 1
         
-    print("-" * 50)
-    print(f"Successfully generated {count} mechanism glyphs.")
+    print(f"[SUCCESS] Generated {count} unique mechanism glyphs in '{output_dir}'.")
+
+if __name__ == "__main__":
+    # Assuming this script is run from the root or src directory, route to assets
+    target_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../assets/glyphs"))
+    generate_glyphs(target_dir)

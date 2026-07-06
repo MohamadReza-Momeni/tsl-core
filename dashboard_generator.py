@@ -3,7 +3,7 @@ import os
 
 def generate_dashboard():
     # Setup paths
-    csv_path = "data/catalogs/TSL-104_Threat_Catalog_v1.csv"
+    csv_path = "data/catalogs/TSL-104_Threat_Catalog_v2.csv"
     output_html = "output/dashboard.html"
     renders_dir = "renders"  # Relative path from dashboard.html to the SVGs
 

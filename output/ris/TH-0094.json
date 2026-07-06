@@ -1,7 +1,7 @@
 {
   "id": "TH-0094",
   "frame": {
-    "shape": "double_circle",
+    "shape": "quatrefoil",
     "border": "dashed"
   },
   "geometry": {

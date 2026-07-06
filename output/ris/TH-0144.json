@@ -1,7 +1,7 @@
 {
   "id": "TH-0144",
   "frame": {
-    "shape": "rectangle",
+    "shape": "diamond",
     "border": "dash-dot"
   },
   "geometry": {

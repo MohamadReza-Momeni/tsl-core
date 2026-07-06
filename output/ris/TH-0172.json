@@ -1,7 +1,7 @@
 {
   "id": "TH-0172",
   "frame": {
-    "shape": "rectangle",
+    "shape": "diamond",
     "border": "solid"
   },
   "geometry": {

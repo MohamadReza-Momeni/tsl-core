@@ -1,7 +1,7 @@
 {
   "id": "TH-0055",
   "frame": {
-    "shape": "rounded_hexagon",
+    "shape": "quatrefoil",
     "border": "dash-dot"
   },
   "geometry": {

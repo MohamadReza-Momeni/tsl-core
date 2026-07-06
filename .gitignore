@@ -10,6 +10,7 @@ __pycache__/
 *$py.class
 
 *.svg
+*.json
 
 # Tooling caches
 .pytest_cache/

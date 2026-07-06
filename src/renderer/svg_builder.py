@@ -26,11 +26,12 @@ class SVGRenderer:
         }
         
         self.SEVERITY_COLORS = {
-            1: "#3498DB", # Blue (Minimal)
-            2: "#F1C40F", # Yellow (Low)
-            3: "#E67E22", # Orange (Moderate)
-            4: "#E74C3C", # Red (High)
-            5: "#8E44AD"  # Purple/Black (Critical)
+            1: "#FFFFFF", # White (Minimal / Baseline)
+            2: "#FDE047", # Yellow Intensity 1 (Soft/Light)
+            3: "#EAB308", # Yellow Intensity 2 (Deep/Warning)
+            4: "#EF4444", # Red Intensity 1 (Bright/Elevated)
+            5: "#DC2626", # Red Intensity 2 (Strong/High)
+            6: "#991B1B"  # Red Intensity 3 (Dark/Critical)
         }
 
     def _extract_svg_content(self, filepath):

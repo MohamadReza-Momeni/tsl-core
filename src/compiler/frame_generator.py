@@ -24,7 +24,7 @@ def generate_frame(name, inner_svg, output_dir):
     print(f"[+] Generated: {filepath}")
 
 if __name__ == "__main__":
-    target_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../assets/primitives"))
+    target_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../assets/frames"))
     os.makedirs(target_dir, exist_ok=True)
     
     for name, svg in FRAMES.items():

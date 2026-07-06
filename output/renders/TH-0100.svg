@@ -15,7 +15,7 @@
     
     
     <g class="tsl-modifier">
-      <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><line x1="50" y1="5" x2="50" y2="-25"/><polyline points="35,-10 50,-25 65,-10"/></g>
+      <g fill="none" stroke="currentColor" stroke-width="4"><path d="M 70,50 L 70,25 Q 70,15 60,15 L 40,15"/><polyline points="50,5 40,15 50,25"/></g>
     </g>
   </g>
 </svg>

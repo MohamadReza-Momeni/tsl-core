@@ -21,7 +21,7 @@
     </g>
     
     <g class="tsl-modifier">
-      <path d="M 0,0 L 5,10 L -5,20 L 5,30" stroke="currentColor" stroke-width="2" fill="none" opacity="0.6"/>
+      <path d="M 20,85 L 40,75 L 50,90 L 70,75 L 80,85" fill="none" stroke="currentColor" stroke-width="3"/>
     </g>
   </g>
 </svg>

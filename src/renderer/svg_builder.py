@@ -73,7 +73,7 @@ class SVGRenderer:
         # 2. Actor Frame
         frame_shape = ris.get("frame", {}).get("shape", "rectangle")
         dash_style = self.BORDER_STYLES.get(ris.get("frame", {}).get("border", "solid"), "")
-        frame_content = self._extract_svg_content(os.path.join(self.assets_dir, "primitives", f"frame_{frame_shape}.svg"))
+        frame_content = self._extract_svg_content(os.path.join(self.assets_dir, "frames", f"frame_{frame_shape}.svg"))
         
         final_svg.append('    ')
         final_svg.append(f'    <g {dash_style}>\n      {frame_content}\n    </g>')

@@ -18,7 +18,7 @@
     </g>
     
     <g class="tsl-modifier">
-      <rect x="0" y="0" width="100" height="100" fill="url(#fadeGradient)" opacity="0.5"/>
+      <path d="M 15,15 L 85,85 M 85,15 L 15,85" fill="none" stroke="currentColor" stroke-width="4" opacity="0.6"/>
     </g>
   </g>
 </svg>

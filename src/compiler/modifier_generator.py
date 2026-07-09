@@ -24,8 +24,8 @@ MODIFIERS = {
     # INT-07 Intimidate: Heavy "Armor Corners" (thick L-brackets at the 4 inner corners)
     "heavy_outline": '<g fill="none" stroke="currentColor" stroke-width="6"><path d="M 20,40 L 20,20 L 40,20 M 80,40 L 80,20 L 60,20 M 20,60 L 20,80 L 40,80 M 80,60 L 80,80 L 60,80"/></g>',
     
-    # INT-08 Steal: "Hook" in the top-right quadrant pulling upward and curving inward
-    "extraction_arrow": '<g fill="none" stroke="currentColor" stroke-width="4"><path d="M 70,50 L 70,25 Q 70,15 60,15 L 40,15"/><polyline points="50,5 40,15 50,25"/></g>',
+    # INT-08 Steal: "Corner Bites" at top-left and bottom-right with extended outward extraction arrows
+    "extraction_arrow": '<g fill="none" stroke="currentColor" stroke-width="4"><path d="M 20,0 L 0,0 L 0,20 M 10,10 L 0,0 M 100,80 L 100,100 L 80,100 M 90,90 L 100,100"/></g>',
     
     # INT-09 Destroy: Kinetic impact lines hitting the perimeter
     "radial_burst": '<g fill="none" stroke="currentColor" stroke-width="3" opacity="0.7"><line x1="50" y1="-10" x2="50" y2="10"/><line x1="50" y1="110" x2="50" y2="90"/><line x1="-10" y1="50" x2="10" y2="50"/><line x1="110" y1="50" x2="90" y2="50"/><line x1="8" y1="8" x2="22" y2="22"/><line x1="92" y1="92" x2="78" y2="78"/><line x1="92" y1="8" x2="78" y2="22"/><line x1="8" y1="92" x2="22" y2="78"/></g>',

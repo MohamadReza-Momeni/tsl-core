@@ -3,7 +3,7 @@ import os
 
 def generate_dashboard():
     # Setup paths
-    csv_path = "data/catalogs/TSL-104_Threat_Catalog_v2.csv" # Updated to v2 based on our last step!
+    csv_path = "data/catalogs/TSL-104_Threat_Catalog_v2.csv"
     output_html = "output/dashboard.html"
     renders_dir = "renders"  
 
@@ -56,17 +56,15 @@ def generate_dashboard():
             #searchBar { width: 300px; padding: 12px 20px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-main); outline: none; font-size: 16px; transition: border-color 0.3s, background-color 0.3s, color 0.3s; }
             #searchBar:focus { border-color: var(--accent); }
             
-            /* Theme Toggle Button */
             #themeToggle { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
             #themeToggle:hover { border-color: var(--accent); color: var(--accent); }
 
             .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
-            .card { background: var(--bg-card); border-radius: 12px; padding: 25px; text-align: center; border: 1px solid var(--border-color); transition: transform 0.2s, border-color 0.2s, background-color 0.3s, box-shadow 0.3s; box-shadow: var(--shadow); }
+            .card { background: var(--bg-card); border-radius: 12px; padding: 25px; text-align: center; border: 1px solid var(--border-color); transition: transform 0.2s, border-color 0.2s, background-color 0.3s, box-shadow 0.3s; box-shadow: var(--shadow); display: flex; flex-direction: column; }
             .card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: var(--shadow-hover); }
-            .card img { width: 180px; height: 180px; margin-bottom: 20px; filter: var(--svg-filter); transition: filter 0.3s; }
+            .card img { width: 180px; height: 180px; margin-bottom: 20px; filter: var(--svg-filter); transition: filter 0.3s; align-self: center; }
             .card h3 { margin: 0 0 15px 0; font-size: 20px; color: var(--text-main); }
             
-            /* Badges */
             .badges { display: flex; justify-content: center; gap: 8px; margin-bottom: 15px; flex-wrap: wrap; }
             .badge { padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
             .badge-domain { background: rgba(56, 189, 248, 0.1); color: #0284c7; border: 1px solid rgba(56, 189, 248, 0.2); }
@@ -77,7 +75,10 @@ def generate_dashboard():
             :root[data-theme="dark"] .badge-actor { color: #fb7185; }
             :root[data-theme="dark"] .badge-intent { color: #c084fc; }
 
-            .desc { font-size: 14px; color: var(--text-muted); margin: 0; line-height: 1.5; }
+            .desc-container { margin-top: auto; padding-top: 15px; border-top: 1px solid var(--border-color); }
+            .desc { font-size: 13px; color: var(--text-muted); margin: 0 0 8px 0; line-height: 1.4; }
+            .desc:last-child { margin-bottom: 0; }
+            .desc strong { color: var(--text-main); font-weight: 600; }
             .hidden { display: none; }
         </style>
     </head>
@@ -88,7 +89,7 @@ def generate_dashboard():
                 <p style="margin: 5px 0 0 0; color: var(--text-muted); font-size: 14px; transition: color 0.3s;">Interactive Standard Symbology Reference</p>
             </div>
             <div class="header-controls">
-                <input type="text" id="searchBar" placeholder="Search by ID, Domain, Actor..." onkeyup="filterCards()">
+                <input type="text" id="searchBar" placeholder="Search by ID, Domain, Actor, or Mechanism..." onkeyup="filterCards()">
                 <button id="themeToggle" onclick="toggleTheme()">☀️ Light Mode</button>
             </div>
         </header>
@@ -101,10 +102,19 @@ def generate_dashboard():
         domain = row.get("Domain Code", "")
         actor = row.get("Init Actor Code", "")
         intent = row.get("Intent Code", "")
-        mec_name = row.get("Mec 1 Name", "Unknown Mechanism").title()
+        mec1_name = str(row.get("Mec 1 Name", "")).strip().title()
+        mec2_name = str(row.get("Mec 2 Name", "")).strip().title()
+
+        if not mec1_name:
+            mec1_name = "Unknown Mechanism"
 
         svg_path = f"{renders_dir}/{threat_id}.svg"
-        search_data = f"{threat_id} {domain} {actor} {intent} {mec_name}".lower()
+        
+        # Include mec2 in the search string so users can filter by secondary mechanisms
+        search_data = f"{threat_id} {domain} {actor} {intent} {mec1_name} {mec2_name}".lower()
+
+        # Conditionally format the secondary mechanism HTML
+        mec2_html = f'<p class="desc"><strong>Secondary:</strong><br>{mec2_name}</p>' if mec2_name else ''
 
         card_html = f"""
             <div class="card" data-search="{search_data}">
@@ -115,7 +125,10 @@ def generate_dashboard():
                     <span class="badge badge-actor">{actor}</span>
                     {f'<span class="badge badge-intent">{intent}</span>' if intent else ''}
                 </div>
-                <p class="desc"><strong>Primary Method:</strong><br>{mec_name}</p>
+                <div class="desc-container">
+                    <p class="desc"><strong>Primary Method:</strong><br>{mec1_name}</p>
+                    {mec2_html}
+                </div>
             </div>
         """
         html_content += card_html
@@ -155,7 +168,7 @@ def generate_dashboard():
                 }
             }
 
-            // Load saved theme on startup (default to dark if none saved)
+            // Load saved theme on startup
             window.onload = function() {
                 const savedTheme = localStorage.getItem('tsl-theme') || 'dark';
                 document.documentElement.setAttribute('data-theme', savedTheme);

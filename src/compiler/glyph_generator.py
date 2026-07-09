@@ -66,7 +66,12 @@ RAW_GLYPHS = {
     "migration_pressure": '<polyline points="20,35 80,35 80,50"/><polyline points="20,65 80,65 80,50"/><line x1="80" y1="20" x2="80" y2="80" stroke-dasharray="4 4"/>', # Flow lines hitting a dashed border
     "violence_&_riot_incitement": '<path d="M 50,15 C 20,40 20,85 50,85 C 80,85 80,40 50,15 Z"/><path d="M 50,45 C 40,60 40,85 50,85"/>', # Flame
     "weaponized_migration": '<polyline points="20,70 50,40 80,70"/><line x1="50" y1="80" x2="50" y2="15"/><polyline points="35,30 50,15 65,30"/>', # Migration flow converging into a spearhead
-    "extremist_radicalization": '<path d="M 50,50 L 20,20 M 50,50 L 80,20 M 50,50 L 20,80 M 50,50 L 80,80"/><circle cx="50" cy="50" r="15"/>' # Radical fracture / sharp spiral
+    "extremist_radicalization": '<path d="M 50,50 L 20,20 M 50,50 L 80,20 M 50,50 L 20,80 M 50,50 L 80,80"/><circle cx="50" cy="50" r="15"/>', # Radical fracture / sharp spiral
+
+    # === NEW: MECHANISMS ADDED TO RESOLVE VISUAL COLLISIONS ===
+    "illicit_trade_&_smuggling": '<path d="M 20,40 L 80,40 L 80,70 L 20,70 Z" stroke-dasharray="4 4"/><path d="M 30,40 L 50,20 L 70,40"/><line x1="50" y1="40" x2="50" y2="70"/>', # Dashed stealth crate
+    "public_health_degradation": '<path d="M 40,20 L 60,20 L 60,40 L 80,40 L 80,60 L 60,60 L 60,80 L 40,80 L 40,60 L 20,60 L 20,40 L 40,40 Z"/><line x1="20" y1="20" x2="80" y2="80"/>', # Medical cross slashed
+    "separatist_incitement": '<path d="M 35,20 L 35,80 M 65,20 L 65,80"/><path d="M 50,10 L 50,90" stroke-dasharray="4 4"/><polyline points="20,40 35,50 20,60"/><polyline points="80,40 65,50 80,60"/>' # Entity splitting apart
 }
 
 def generate_glyphs(output_dir):

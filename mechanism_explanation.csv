@@ -1,0 +1,50 @@
+کد مکانیزم,نام انگلیسی,نام فارسی,شکل هندسی طراحی شده (Glyph)
+MEC-101,Propaganda,پروپاگاندا,بلندگو
+MEC-102,Disinformation,نشر اطلاعات دروغ (دیس‌اینفورمیشن),دایره خط خورده
+MEC-103,Misinformation,اطلاعات نادرست,علامت سوال داخل دایره
+MEC-104,Narrative Manipulation,دستکاری روایت,خطوط متقاطع و در هم تنیده
+MEC-105,Psychological Operations,عملیات روانی,نماد چشم / ذهن
+MEC-106,Deepfake Distribution,توزیع دیپ‌فیک,قاب‌های هم‌پوشانی شده با خط‌چین (نقاب‌دار)
+MEC-107,Censorship,سانسور,قفل
+MEC-108,Information Suppression,سرکوب اطلاعات,پیکان ضخیم رو به پایین در حال برخورد به مانع
+MEC-109,Influence Campaign,کارزار اعمال نفوذ,امواج پخش (سیگنال رادیویی)
+MEC-110,Rumor Propagation,شایعه‌پراکنی,انتشار شاخه‌ای و ویروسی
+MEC-111,Character Assassination,ترور شخصیت,نماد یک انسان خط خورده
+MEC-112,Demoralization,تضعیف روحیه,قلب شکسته
+MEC-113,Educational Co-optation,نفوذ در سیستم آموزشی,کلاه فارغ‌التحصیلی و نهاد
+MEC-201,Cyber Intrusion,نفوذ سایبری,پیکان در حال نفوذ و شکستن سپر
+MEC-203,Data Exfiltration,سرقت و خروج داده,پوشه با پیکان خروجی
+MEC-204,Denial of Service,حمله منع خدمت (DoS),رک سرور خط خورده
+MEC-205,Credential Theft,سرقت اعتبارنامه (رمز عبور),نماد کلید
+MEC-206,Supply Chain Compromise,نفوذ در زنجیره تامین,جعبه‌های متصل که جعبه مرکزی آسیب دیده است
+MEC-207,Data Harvesting & Microtargeting,جمع‌آوری داده و هدف‌گیری خرد,شبکه هدف‌گیری (مگسک)
+MEC-301,Economic Sanctions,تحریم‌های اقتصادی,نماد ارز خط خورده
+MEC-302,Market Manipulation,دستکاری بازار,جهش مصنوعی نمودار
+MEC-303,Currency Manipulation,دستکاری ارز,سکه‌های متصل با تبادل تغییریافته
+MEC-304,Resource Denial,محرومیت از منابع (انکار منابع),نماد قطره (منبع) خط خورده
+MEC-305,Investment Influence,نفوذ از طریق سرمایه‌گذاری,نمودار صعودی روی یک دست/پایه
+MEC-306,Trade Restriction,محدودیت تجاری,جعبه حمل و نقل خط خورده
+MEC-307,Strategic Asset Acquisition,تملک دارایی‌های استراتژیک,کارخانه یا ساختمان علامت‌گذاری شده
+MEC-308,Subversion Funding,تامین مالی براندازی,کیسه پول
+MEC-309,Policy Sabotage,خرابکاری در سیاست‌گذاری,سند مکتوب خط خورده
+MEC-401,Diplomatic Pressure,فشار دیپلماتیک,بلوک‌های تحت فشار و محدود شده
+MEC-402,Election Interference,مداخله در انتخابات,صندوق رای در حال دستکاری
+MEC-403,Institutional Capture,تسخیر نهادی,ساختمان دولتی گرفتار در تور
+MEC-404,Legal Manipulation,دستکاری حقوقی (لاوفر),ترازوی عدالت نامتعادل
+MEC-405,Crisis Exploitation,سوءاستفاده از بحران,علامت هشدار همراه با نمودار صعودی
+MEC-406,International Forum Manipulation,دستکاری در مجامع بین‌المللی,کره زمین مخدوش شده
+MEC-407,Border Provocation,تحریک مرزی,پیکان‌های متقابل در یک مرز خط‌چین
+MEC-501,Kinetic Strike,حمله نظامی (کینتیک),برخورد موشک
+MEC-502,Sabotage,خرابکاری فیزیکی,ضربدر ساده (X تاکتیکی)
+MEC-503,Espionage,جاسوسی,چشم
+MEC-504,Force Projection,نمایش قدرت نظامی,فلش‌های دوگانه (شورون) رو به جلو
+MEC-506,Undeclared Gray-Zone Action,اقدام غیررسمی در منطقه خاکستری,علامت سوال در یک جعبه خط‌چین
+MEC-507,Proxy Warfare Support,پشتیبانی از جنگ نیابتی,دو بازیگر متصل به نخ‌های خیمه‌شب‌بازی
+MEC-601,Social Polarization,قطبی‌سازی اجتماعی,پیکان‌های دورشونده از یک دیوار مرکزی
+MEC-602,Identity Manipulation,دستکاری هویتی,اثر انگشت / هدف خط خورده
+MEC-603,Cultural Influence,نفوذ فرهنگی,نماد معبد یا بنای تاریخی
+MEC-604,Protest Mobilization,بسیج اعتراضات,مشت گره‌کرده (برافراشته)
+MEC-605,Migration Pressure,فشار مهاجرتی,خطوط جریان در حال برخورد به یک مرز خط‌چین
+MEC-606,Violence & Riot Incitement,تحریک به خشونت و شورش,شعله آتش
+MEC-607,Weaponized Migration,مهاجرت تسلیحاتی,جریان مهاجرت متمرکز شده به شکل نوک نیزه
+MEC-608,Extremist Radicalization,افراط‌گرایی,شکستگی رادیکال و مارپیچ تیز

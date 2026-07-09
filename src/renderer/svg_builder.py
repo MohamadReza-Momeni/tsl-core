@@ -15,7 +15,7 @@ class SVGRenderer:
 
         self.ZONES = {
             "center": {"x": 25, "y": 25, "scale": 0.5},
-            "north":  {"x": 35, "y": 5,  "scale": 0.3},
+            "north":  {"x": 35, "y": 0,  "scale": 0.3},
             "south":  {"x": 35, "y": 65, "scale": 0.3}
         }
 

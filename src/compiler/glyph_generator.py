@@ -8,7 +8,7 @@ WRAPPER_END = '</g>'
 # The complete library of 47 Mechanism Glyphs
 RAW_GLYPHS = {
     # === DOMAIN 1: INFORMATION & COGNITIVE ===
-    "propaganda": '<path d="M 30,45 L 50,45 L 80,20 L 80,80 L 50,55 L 30,55 Z"/><path d="M 20,40 C 10,45 10,55 20,60"/>', # Megaphone
+    "propaganda": '<path d="M 20,45 L 40,45 L 60,20 L 60,80 L 40,55 L 20,55 Z"/><path d="M 70,30 Q 80,50 70,70 M 80,20 Q 95,50 80,80"/>', # Megaphone facing right with waves
     "disinformation": '<circle cx="50" cy="50" r="30"/><line x1="25" y1="25" x2="75" y2="75"/>', # Crossed-out circle
     "misinformation": '<circle cx="50" cy="50" r="30"/><path d="M 40,40 C 40,30 60,30 60,40 C 60,50 50,50 50,60"/><circle cx="50" cy="70" r="2" fill="currentColor"/>', # Question mark in circle
     "narrative_manipulation": '<path d="M 20,20 Q 50,80 80,20"/><path d="M 20,80 Q 50,20 80,80"/>', # Twisted / crossing lines
@@ -16,9 +16,9 @@ RAW_GLYPHS = {
     "deepfake_distribution": '<rect x="20" y="20" width="40" height="40" rx="10"/><rect x="40" y="40" width="40" height="40" rx="10" stroke-dasharray="4 4"/>', # Overlapping masked frames
     "censorship": '<rect x="20" y="40" width="60" height="40" rx="5"/><path d="M 35,40 L 35,25 Q 50,10 65,25 L 65,40"/>', # Padlock
     "information_suppression": '<line x1="20" y1="80" x2="80" y2="80"/><line x1="50" y1="20" x2="50" y2="70"/><polyline points="35,55 50,70 65,55"/>', # Heavy downward arrow hitting a barrier
-    "influence_campaign": '<circle cx="50" cy="50" r="10"/><path d="M 30,30 Q 50,10 70,30 M 20,20 Q 50,-10 80,20 M 30,70 Q 50,90 70,70 M 20,80 Q 50,110 80,80"/>', # Broadcast waves
+    "influence_campaign": '<g transform="translate(10, 10) scale(0.8)"><circle cx="50" cy="50" r="10"/><path d="M 30,30 Q 50,10 70,30 M 20,20 Q 50,-10 80,20 M 30,70 Q 50,90 70,70 M 20,80 Q 50,110 80,80"/></g>', # Scaled down broadcast waves
     "rumor_propagation": '<circle cx="50" cy="50" r="10"/><polyline points="50,40 20,20 20,40 M 20,20 L 40,20"/><polyline points="60,60 80,80 60,80 M 80,80 L 80,60"/>', # Branching viral spread
-    "character_assassination": '<circle cx="50" cy="35" r="15"/><path d="M 25,85 Q 50,55 75,85"/><line x1="10" y1="50" x2="90" y2="50"/>', # Person slashed
+    "character_assassination": '<g><circle cx="50" cy="30" r="15"/><path d="M 25,80 C 25,50 75,50 75,80"/></g><g stroke-dasharray="4 4"><circle cx="50" cy="45" r="25"/><line x1="50" y1="10" x2="50" y2="80"/><line x1="15" y1="45" x2="85" y2="45"/></g>', # Person silhouette with dashed crosshairs
     "demoralization": '<path d="M 50,30 C 50,10 20,10 20,40 Q 20,60 50,85 Q 80,60 80,40 C 80,10 50,10 50,30 Z"/><polyline points="50,20 40,50 60,60 50,85"/>', # Broken heart
     "educational_co_optation": '<polygon points="50,25 20,40 50,55 80,40"/><line x1="50" y1="55" x2="50" y2="80"/><line x1="80" y1="40" x2="80" y2="70"/>', # Graduation cap / Institution
 

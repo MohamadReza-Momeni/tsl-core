@@ -3,8 +3,8 @@ import os
 # Define the 12 Strategic Intent Modifiers
 # Overlays are designed to sit inside or slightly outside the 100x100 viewBox without obscuring the core.
 MODIFIERS = {
-    # INT-01 Destabilize: Jagged "fault line" across the bottom edge
-    "position_jitter": '<path d="M 20,85 L 40,75 L 50,90 L 70,75 L 80,85" fill="none" stroke="currentColor" stroke-width="3"/>',
+    # INT-01 Destabilize: A slipping/fractured foundation beneath the frame
+    "position_jitter": '<g fill="none" stroke="currentColor" stroke-width="4"><line x1="25" y1="90" x2="50" y2="90"/><line x1="50" y1="98" x2="75" y2="98"/><line x1="50" y1="90" x2="50" y2="98"/></g>',
     
     # INT-02 Influence: Expanding dashed rings
     "outward_ripple": '<circle cx="50" cy="50" r="55" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" opacity="0.5"/><circle cx="50" cy="50" r="62" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6" opacity="0.3"/>',

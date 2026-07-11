@@ -1,0 +1,42 @@
+{
+  "frame_map": {
+    "ACT-01": "rectangle",
+    "ACT-02": "circle",
+    "ACT-03": "diamond",
+    "ACT-04": "quatrefoil"
+  },
+  "geometry_map": {
+    "DOM-01": "radial_network",
+    "DOM-02": "bar_stack",
+    "DOM-03": "connected_chain",
+    "DOM-04": "population_cluster",
+    "DOM-05": "directed_vectors",
+    "DOM-06": "grid"
+  },
+  "intent_map": {
+    "INT-01": "position_jitter",
+    "INT-02": "outward_ripple",
+    "INT-03": "inward_compression",
+    "INT-04": "structural_fracture",
+    "INT-05": "wave_distortion",
+    "INT-06": "clockwise_rotation_offset",
+    "INT-07": "heavy_outline",
+    "INT-08": "extraction_arrow",
+    "INT-09": "radial_burst",
+    "INT-10": "extension_vectors",
+    "INT-11": "progressive_fading",
+    "INT-12": "boundary_ring"
+  },
+  "target_map": {
+    "TGT-01": "TGT-01",
+    "TGT-05": "TGT-05",
+    "TGT-07": "TGT-07",
+    "TGT-10": "TGT-10",
+    "TGT-UNKNOWN": "TGT-UNKNOWN"
+  },
+  "visibility_map": {
+    "VIS-01": "solid",
+    "VIS-02": "dashed",
+    "VIS-03": "dash-dot"
+  }
+}

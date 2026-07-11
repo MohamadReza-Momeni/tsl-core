@@ -1,24 +1,62 @@
-# Python virtual environments
+# ==========================================
+# TSL-Core Project Ignore List
+# ==========================================
+
+# 1. Auto-Generated TSL Outputs
+# We ignore everything inside the output folder to prevent 
+# committing thousands of generated SVGs and JSONs to version control.
+output/renders/*.svg
+output/ris/*.json
+output/dashboard.html
+output/dashboard_new.html
+
+# 2. Auto-Generated SVG Primitives
+# Since frame_generator.py, glyph_generator.py, etc., generate these on the fly,
+# we do not need to track the actual SVG files, keeping the repo clean.
+assets/frames/*.svg
+assets/geometries/*.svg
+assets/glyphs/*.svg
+assets/modifiers/*.svg
+assets/targets/*.svg
+
+# 3. Python Virtual Environments & Caches
+# (Crucial since you are using .venv)
 .venv/
 venv/
 env/
-ENV/
-
-# Python cache
 __pycache__/
 *.py[cod]
 *$py.class
-
-*.svg
-*.json
-
-# Tooling caches
 .pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.ipynb_checkpoints/
+.coverage
+htmlcov/
 
-# OS/editor noise
-.DS_Store
+# 4. Local Environment Variables
+.env
+.env.local
+
+# 5. OS Generated Files
+# Prevents Windows and macOS indexing files from cluttering the repo
 Thumbs.db
+desktop.ini
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 6. IDE / Editor Folders
 .vscode/
+.idea/
+*.swp
+*.swo
+
+# ==========================================
+# EXCEPTIONS (Files we DO want to track)
+# ==========================================
+# If you want to keep empty directories tracked in Git, 
+# you can place a .gitkeep file inside them and uncomment these lines:
+# !output/renders/.gitkeep
+# !output/ris/.gitkeep
+# !assets/frames/.gitkeep
+# !assets/geometries/.gitkeep
+# !assets/glyphs/.gitkeep
+# !assets/modifiers/.gitkeep

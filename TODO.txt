@@ -1,0 +1,3 @@
+Change color of backgrounds.
+Icon parts shouldn't overlay each other.
+Check for military conflicts. 

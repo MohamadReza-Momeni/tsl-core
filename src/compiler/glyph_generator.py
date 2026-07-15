@@ -2,7 +2,7 @@ import os
 
 # Base styling wrapper for all glyphs to ensure consistency
 # stroke="currentColor" ensures they automatically adopt the Severity Color (Red, Yellow, etc.)
-WRAPPER_START = '<g fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">'
+WRAPPER_START = '<g fill="none" stroke="#808080" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">'
 WRAPPER_END = '</g>'
 
 # The complete library of 47 Mechanism Glyphs

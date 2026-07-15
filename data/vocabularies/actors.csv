@@ -1,13 +1,5 @@
-Actor Code,Actor Name,Description
-ACT-01,Foreign State,"A sovereign government, state actor, or entity acting on behalf of a foreign nation."
-ACT-02,Domestic State,"A national government, its ministries, or official state organs acting within its own territory."
-ACT-03,Military Organization,"Formal military forces, command structures, or branches thereof."
-ACT-04,Intelligence Service,"Government agencies tasked with gathering and analyzing intelligence, including clandestine operations."
-ACT-05,Proxy Organization,"A non-state entity acting on behalf of a state or power to achieve its strategic objectives."
-ACT-06,Terrorist Organization,"An organization that uses unlawful violence, intimidation, and terror against civilians to achieve political or ideological goals."
-ACT-07,Criminal Organization,"Entities involved in organized criminal activities, frequently acting for financial gain or as a cover for state-sponsored subversion."
-ACT-08,Corporation,"A commercial business entity or industrial firm that may be used for economic influence or strategic asset subversion."
-ACT-09,NGO,"Non-governmental organizations; can be exploited for cultural influence, funding subversion, or as a diplomatic cover."
-ACT-10,Individual,"A single person acting independently or within a loose network, often used in grassroots subversion or disinformation."
-ACT-11,Automated System,"Algorithms, bots, AI agents, or automated software used to scale disinformation, polarization, or cyber-attacks."
-ACT-99,Unknown,"A threat actor whose identity, affiliation, or nature remains unidentified by current intelligence."
+Code,Name,Description
+ACT-01,Foreign State,"A recognized sovereign nation-state operating with hostile or competitive intent."
+ACT-02,Domestic State,"Internal government entities, agencies, or state-sponsored domestic groups."
+ACT-03,Non-State Actor / Proxy,"Independent organizations, insurgent groups, or state-sponsored proxies."
+ACT-04,Transnational Entity,"International organizations, multinational corporations, or global movements."

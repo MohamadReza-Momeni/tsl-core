@@ -28,4 +28,4 @@ if __name__ == "__main__":
     
     for name, svg in FRAMES.items():
         generate_frame(name, svg, target_dir)
-    print("Successfully generated all 12 Actor Frames.")
+    print("Successfully generated all 4 Actor Frames.")

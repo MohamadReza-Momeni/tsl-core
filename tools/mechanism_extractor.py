@@ -1,7 +1,7 @@
 import pandas as pd
 
 def extract_for_generation():
-    csv_path = "data/catalogs/TSL-104_Threat_Catalog_v2.csv"
+    csv_path = "data/catalogs/TSL-104_Threat_Catalog_v3.csv"
     try:
         df = pd.read_csv(csv_path).fillna("")
     except FileNotFoundError:

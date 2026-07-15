@@ -27,13 +27,6 @@
     "INT-11": "progressive_fading",
     "INT-12": "boundary_ring"
   },
-  "target_map": {
-    "TGT-01": "TGT-01",
-    "TGT-05": "TGT-05",
-    "TGT-07": "TGT-07",
-    "TGT-10": "TGT-10",
-    "TGT-UNKNOWN": "TGT-UNKNOWN"
-  },
   "visibility_map": {
     "VIS-01": "solid",
     "VIS-02": "dashed",

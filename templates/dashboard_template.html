@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSL-104 Canonical Threat Catalog</title>
+    <style>
+        /* --- Theme Variables --- */
+        :root[data-theme="dark"] {
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --accent: #38bdf8;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.5);
+            --svg-filter: drop-shadow(0 0 8px rgba(0,0,0,0.5));
+        }
+        :root[data-theme="light"] {
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --accent: #0284c7;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --svg-filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+
+        /* --- Base Styles --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-main); color: var(--text-main); margin: 0; padding: 20px; transition: background-color 0.3s, color 0.3s; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px; transition: border-color 0.3s; }
+        h1 { margin: 0; font-size: 28px; color: var(--accent); letter-spacing: 1px; }
+        .header-controls { display: flex; gap: 15px; align-items: center; }
+        
+        #searchBar { width: 300px; padding: 12px 20px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-main); outline: none; font-size: 16px; transition: border-color 0.3s, background-color 0.3s, color 0.3s; }
+        #searchBar:focus { border-color: var(--accent); }
+        
+        #themeToggle { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
+        #themeToggle:hover { border-color: var(--accent); color: var(--accent); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: var(--bg-card); border-radius: 12px; padding: 25px; text-align: center; border: 1px solid var(--border-color); transition: transform 0.2s, border-color 0.2s, background-color 0.3s, box-shadow 0.3s; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: var(--shadow-hover); }
+        .card img { width: 180px; height: 180px; margin-bottom: 20px; filter: var(--svg-filter); transition: filter 0.3s; align-self: center; }
+        .card h3 { margin: 0 0 15px 0; font-size: 20px; color: var(--text-main); }
+        
+        .badges { display: flex; justify-content: center; gap: 8px; margin-bottom: 15px; flex-wrap: wrap; cursor: help;}
+        .badge { padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .badge-domain { background: rgba(56, 189, 248, 0.1); color: #0284c7; border: 1px solid rgba(56, 189, 248, 0.2); }
+        .badge-actor { background: rgba(244, 63, 94, 0.1); color: #e11d48; border: 1px solid rgba(244, 63, 94, 0.2); }
+        .badge-intent { background: rgba(167, 139, 250, 0.1); color: #9333ea; border: 1px solid rgba(167, 139, 250, 0.2); }
+        
+        :root[data-theme="dark"] .badge-domain { color: #38bdf8; }
+        :root[data-theme="dark"] .badge-actor { color: #fb7185; }
+        :root[data-theme="dark"] .badge-intent { color: #c084fc; }
+
+        .desc-container { margin-top: auto; padding-top: 15px; border-top: 1px solid var(--border-color); }
+        .desc { font-size: 13px; color: var(--text-muted); margin: 0 0 8px 0; line-height: 1.4; }
+        .desc:last-child { margin-bottom: 0; }
+        .desc strong { color: var(--text-main); font-weight: 600; }
+        .hidden { display: none; }
+
+        /* --- Tooltip Styles --- */
+        .icon-container { 
+            position: relative; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            align-self: center;
+        }
+        .icon-container img { 
+            margin-bottom: 0; /* Overrides the previous card img margin */ 
+        }
+        
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            width: 220px;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            text-align: left;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            position: absolute;
+            z-index: 10;
+            bottom: 105%;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: var(--shadow-hover);
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            font-size: 13px;
+            pointer-events: none; /* Prevents the tooltip from interfering with mouse hover */
+        }
+        
+        /* Tooltip Arrow */
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -6px;
+            border-width: 6px;
+            border-style: solid;
+            border-color: var(--border-color) transparent transparent transparent;
+        }
+
+        .tooltip h4 { 
+            margin: 0 0 5px 0; 
+            color: var(--accent); 
+            font-size: 14px; 
+            line-height: 1.2;
+        }
+        .tooltip p { 
+            margin: 0; 
+            line-height: 1.4; 
+            color: var(--text-muted); 
+        }
+
+        .icon-container:hover .tooltip { 
+            visibility: visible; 
+            opacity: 1; 
+            transform: translateX(-50%) translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>TSL-104 Catalog</h1>
+            <p style="margin: 5px 0 0 0; color: var(--text-muted); font-size: 14px; transition: color 0.3s;">Interactive Standard Symbology Reference</p>
+        </div>
+        <div class="header-controls">
+            <input type="text" id="searchBar" placeholder="Search by ID, Domain, Actor, or Mechanism..." onkeyup="filterCards()">
+            <button id="themeToggle" onclick="toggleTheme()">☀️ Light Mode</button>
+        </div>
+    </header>
+    
+    <div class="grid" id="threatGrid">
+        <!-- THREAT_CARDS_PLACEHOLDER -->
+    </div>
+
+    <script>
+        // Search Filtering
+        function filterCards() {
+            const input = document.getElementById('searchBar').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                const searchData = card.getAttribute('data-search');
+                if (searchData.includes(input)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Theme Toggling
+        function toggleTheme() {
+            const htmlElement = document.documentElement;
+            const toggleBtn = document.getElementById('themeToggle');
+            
+            if (htmlElement.getAttribute('data-theme') === 'dark') {
+                htmlElement.setAttribute('data-theme', 'light');
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+                localStorage.setItem('tsl-theme', 'light');
+            } else {
+                htmlElement.setAttribute('data-theme', 'dark');
+                toggleBtn.innerHTML = '☀️ Light Mode';
+                localStorage.setItem('tsl-theme', 'dark');
+            }
+        }
+
+        // Load saved theme on startup
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('tsl-theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const toggleBtn = document.getElementById('themeToggle');
+            if (savedTheme === 'light') {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+            } else {
+                toggleBtn.innerHTML = '☀️ Light Mode';
+            }
+        };
+    </script>
+</body>
+</html>

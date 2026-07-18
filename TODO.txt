@@ -1,3 +1,4 @@
-Change color of backgrounds.
+// Change color of backgrounds.
+Domain is not visible
 Icon parts shouldn't overlay each other.
 Check for military conflicts. 

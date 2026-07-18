@@ -1,6 +1,9 @@
+# src/renderer/svg_builder.py
+
 import json
 import os
-import re
+from .asset_processor import AssetProcessor
+from .config import ZONES, BORDER_STYLES, SEVERITY_COLORS
 
 class SVGRenderer:
     """
@@ -13,106 +16,76 @@ class SVGRenderer:
         self.output_dir = output_dir
         os.makedirs(self.output_dir, exist_ok=True)
 
-        self.ZONES = {
-            "center": {"x": 25, "y": 25, "scale": 0.5},
-            "north":  {"x": 35, "y": 0,  "scale": 0.3},
-            "south":  {"x": 35, "y": 65, "scale": 0.3}
-        }
-
-        self.BORDER_STYLES = {
-            "solid": "",
-            "dashed": "stroke-dasharray=\"6 4\"",
-            "dash-dot": "stroke-dasharray=\"6 2 2 2\""
-        }
-        
-        self.SEVERITY_COLORS = {
-            1: "#FFFFFF",
-            2: "#FFE300",
-            3: "#FF8400",
-            4: "#FF0000",
-            5: "#870000",
-            6: "#400000"
-        }
-
-    def _extract_svg_content(self, filepath):
-        if not os.path.exists(filepath):
-            print(f"[WARNING] Asset missing: {filepath}")
-            return ""
-        with open(filepath, 'r', encoding='utf-8') as f:
-            match = re.search(r'<svg[^>]*>(.*?)</svg>', f.read(), re.DOTALL | re.IGNORECASE)
-            return match.group(1).strip() if match else ""
-
     def build_symbol(self, ris_filepath):
         with open(ris_filepath, 'r', encoding='utf-8') as f:
             ris = json.load(f)
             
         threat_id = ris.get("id", "UNKNOWN")
         severity = ris.get("amplifier", {}).get("severity", 1)
-        threat_color = self.SEVERITY_COLORS.get(severity, "#E74C3C")
+        threat_color = SEVERITY_COLORS.get(severity, "#FFFFFF")
         
-        # Initialize the SVG array
         final_svg = [
             '<?xml version="1.0" encoding="UTF-8"?>',
             '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="400" height="400" overflow="visible">',
-            '  <defs>',
-            '    <style>',
-            f'      .tsl-threat {{ color: {threat_color}; }}', 
-            '    </style>',
-            '  </defs>',
-            f'  <g class="tsl-threat">' 
+            f'  <defs><style>.tsl-threat {{ color: {threat_color}; }}</style></defs>',
+            '  <g class="tsl-threat">' 
         ]
 
-        # 1. Base Geometry (Background)
+        # 1. Actor Frame
+        frame_shape = ris.get("frame", {}).get("shape", "rectangle")
+        dash_style = BORDER_STYLES.get(ris.get("frame", {}).get("border", "solid"), "")
+        frame_path = os.path.join(self.assets_dir, "frames", f"frame_{frame_shape}.svg")
+        frame_content = AssetProcessor.extract_and_restyle(frame_path, "#000000", 0)
+        
+        final_svg.extend(['    ', f'    <g {dash_style}>\n      {frame_content}\n    </g>'])
+
+        # 2. Base Geometry
         geometry_type = ris.get("geometry", {}).get("type")
         if geometry_type:
             geom_path = os.path.join(self.assets_dir, "geometries", f"{geometry_type}.svg")
-            geom_content = self._extract_svg_content(geom_path)
+            geom_content = AssetProcessor.extract_and_restyle(geom_path, "#FFFFFF", 0)
             if geom_content:
-                final_svg.append('    ')
-                final_svg.append(f'    {geom_content}')
-
-        # 2. Actor Frame
-        frame_shape = ris.get("frame", {}).get("shape", "rectangle")
-        dash_style = self.BORDER_STYLES.get(ris.get("frame", {}).get("border", "solid"), "")
-        frame_content = self._extract_svg_content(os.path.join(self.assets_dir, "frames", f"frame_{frame_shape}.svg"))
-        
-        final_svg.append('    ')
-        final_svg.append(f'    <g {dash_style}>\n      {frame_content}\n    </g>')
+                final_svg.extend(['    ', f'    <g opacity="0.4">\n      {geom_content}\n    </g>'])
 
         # 3. Mechanism Glyphs
         final_svg.append('    ')
         for glyph in sorted(ris.get("glyphs", []), key=lambda x: x.get("priority", 99)):
-            glyph_content = self._extract_svg_content(os.path.join(self.assets_dir, "glyphs", f"{glyph.get('type')}.svg"))
-            if glyph_content:
-                z_data = self.ZONES.get(glyph.get("zone", "center"))
-                transform = f"translate({z_data['x']}, {z_data['y']}) scale({z_data['scale']})"
-                final_svg.append(f'    <g transform="{transform}">\n      {glyph_content}\n    </g>')
+            glyph_path = os.path.join(self.assets_dir, "glyphs", f"{glyph.get('type')}.svg")
+            glyph_outline = AssetProcessor.extract_and_restyle(glyph_path, "#000000", 4)
+            glyph_core = AssetProcessor.extract_and_restyle(glyph_path, "#FFFFFF", -1)
+            
+            if glyph_outline and glyph_core:
+                z = ZONES.get(glyph.get("zone", "center"))
+                transform = f"translate({z['x']}, {z['y']}) scale({z['scale']})"
+                final_svg.extend([
+                    f'    <g transform="{transform}">',
+                    f'      {glyph_outline}',
+                    f'      {glyph_core}',
+                    '    </g>'
+                ])
 
-        # 4. Intent Modifier (Overlay)
+        # 4. Intent Modifier
         modifier_type = ris.get("modifier", {}).get("type", "none")
         if modifier_type and modifier_type != "none":
             mod_path = os.path.join(self.assets_dir, "modifiers", f"{modifier_type}.svg")
-            mod_content = self._extract_svg_content(mod_path)
-            if mod_content:
-                final_svg.append('    ')
-                final_svg.append(f'    <g class="tsl-modifier">\n      {mod_content}\n    </g>')
+            mod_outline = AssetProcessor.extract_and_restyle(mod_path, "#000000", 4)
+            mod_core = AssetProcessor.extract_and_restyle(mod_path, "#FFFFFF", -1)
+            
+            if mod_outline and mod_core:
+                final_svg.extend([
+                    '    ', '    <g class="tsl-modifier">',
+                    f'      {mod_outline}', f'      {mod_core}',
+                    '    </g>'
+                ])
 
-        # === CRITICAL: Ensure these tags always close! ===
-        final_svg.append('  </g>')
-        final_svg.append('</svg>')
+        final_svg.extend(['  </g>', '</svg>'])
         
-        # Write to file
         output_filepath = os.path.join(self.output_dir, f"{threat_id}.svg")
         with open(output_filepath, 'w', encoding='utf-8') as f:
             f.write("\n".join(final_svg))
-            
-        print(f"[SUCCESS] Rendered symbol saved to {output_filepath}")
 
 if __name__ == "__main__":
-    # Test fallback if run directly
     renderer = SVGRenderer()
     test_json = "output/ris/TH-TEST-01.json"
     if os.path.exists(test_json):
         renderer.build_symbol(test_json)
-    else:
-        print(f"Cannot find {test_json} to render.")

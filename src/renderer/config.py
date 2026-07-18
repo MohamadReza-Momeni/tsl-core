@@ -1,20 +1,29 @@
-# src/renderer/config.py
-
 """
 Global rendering configuration for TSL-Core.
-Modify these values to adjust symbol placement, borders, and severity colors.
 """
 
+# Mathematically calculated to avoid all frame borders (especially Diamond) 
+# and guarantee zero overlap between multiple mechanisms.
 ZONES = {
-    "center": {"x": 25, "y": 25, "scale": 0.5},
-    "north":  {"x": 35, "y": 0,  "scale": 0.3},
-    "south":  {"x": 35, "y": 65, "scale": 0.3}
+    "center": {"x": 32, "y": 32, "scale": 0.36}, # Occupies X: 32-68, Y: 32-68
+    "north":  {"x": 41, "y": 14, "scale": 0.18}, # Occupies X: 41-59, Y: 14-32
+    "south":  {"x": 41, "y": 68, "scale": 0.18}  # Occupies X: 41-59, Y: 68-86
 }
 
+# Advanced Halo Stacking: Black dashes start 2px earlier and end 2px later to cap the ends!
 BORDER_STYLES = {
-    "solid": "",
-    "dashed": 'stroke-dasharray="6 4"',
-    "dash-dot": 'stroke-dasharray="6 2 2 2"'
+    "solid": {
+        "black": "",
+        "white": ""
+    },
+    "dashed": {
+        "black": 'stroke-dasharray="12 4" stroke-dashoffset="2"',
+        "white": 'stroke-dasharray="8 8"'
+    },
+    "dash-dot": {
+        "black": 'stroke-dasharray="12 2 6 2" stroke-dashoffset="2"',
+        "white": 'stroke-dasharray="8 6 2 6"'
+    }
 }
 
 SEVERITY_COLORS = {
@@ -24,4 +33,15 @@ SEVERITY_COLORS = {
     4: "#FF0000",
     5: "#870000",
     6: "#400000"
+}
+
+# Add this mapping to your config.py
+# Maps the existing geometry types to their corresponding Persian Domain Letter
+DOMAIN_BADGES = {
+    "radial_network": "ش",     # DOM-01
+    "bar_stack": "س",          # DOM-02
+    "connected_chain": "ق",    # DOM-03
+    "population_cluster": "د", # DOM-04
+    "directed_vectors": "ن",   # DOM-05
+    "grid": "ج"                # DOM-06
 }

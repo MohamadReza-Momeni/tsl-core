@@ -1,9 +1,7 @@
-# src/renderer/svg_builder.py
-
 import json
 import os
 from .asset_processor import AssetProcessor
-from .config import ZONES, BORDER_STYLES, SEVERITY_COLORS
+from .config import ZONES, BORDER_STYLES, SEVERITY_COLORS, DOMAIN_BADGES
 
 class SVGRenderer:
     """
@@ -33,11 +31,33 @@ class SVGRenderer:
 
         # 1. Actor Frame
         frame_shape = ris.get("frame", {}).get("shape", "rectangle")
-        dash_style = BORDER_STYLES.get(ris.get("frame", {}).get("border", "solid"), "")
-        frame_path = os.path.join(self.assets_dir, "frames", f"frame_{frame_shape}.svg")
-        frame_content = AssetProcessor.extract_and_restyle(frame_path, "#000000", 0)
+        border_type = ris.get("frame", {}).get("border", "solid")
+        dash_styles = BORDER_STYLES.get(border_type, BORDER_STYLES["solid"])
         
-        final_svg.extend(['    ', f'    <g {dash_style}>\n      {frame_content}\n    </g>'])
+        frame_path = os.path.join(self.assets_dir, "frames", f"frame_{frame_shape}.svg")
+        
+        # Layer Base: Just the solid background fill. Removing the stroke entirely stops it from bleeding through gaps.
+        frame_fill = AssetProcessor.extract_and_restyle(frame_path, fill_override="currentColor", stroke_override="none")
+        
+        # Layer A: Thick black stroke (acts as the inner/outer/cap outline). Fill is removed so it doesn't double-draw.
+        frame_outline = AssetProcessor.extract_and_restyle(frame_path, stroke_override="#000000", width_modifier=4, fill_override="none")
+        
+        # Layer B: Standard white stroke (the core of the border). Fill is removed.
+        frame_core = AssetProcessor.extract_and_restyle(frame_path, stroke_override="#FFFFFF", width_modifier=0, fill_override="none")
+        
+        if frame_fill and frame_outline and frame_core:
+            final_svg.extend([
+                '    ',
+                f'    <g>',
+                f'      {frame_fill}',
+                '    </g>',
+                f'    <g {dash_styles["black"]}>',
+                f'      {frame_outline}',
+                '    </g>',
+                f'    <g {dash_styles["white"]}>',
+                f'      {frame_core}',
+                '    </g>'
+            ])
 
         # 2. Base Geometry
         geometry_type = ris.get("geometry", {}).get("type")

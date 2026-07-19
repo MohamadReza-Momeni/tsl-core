@@ -38,10 +38,19 @@ SEVERITY_COLORS = {
 # Add this mapping to your config.py
 # Maps the existing geometry types to their corresponding Persian Domain Letter
 DOMAIN_BADGES = {
-    "radial_network": "ش",     # DOM-01
+    "radial_network": "ط",     # DOM-01
     "bar_stack": "س",          # DOM-02
     "connected_chain": "ق",    # DOM-03
     "population_cluster": "د", # DOM-04
     "directed_vectors": "ن",   # DOM-05
     "grid": "ج"                # DOM-06
 }
+
+# DOMAIN_BADGES = {
+#     "radial_network": "I",     # DOM-01
+#     "bar_stack": "C",          # DOM-02
+#     "connected_chain": "E",    # DOM-03
+#     "population_cluster": "D", # DOM-04
+#     "directed_vectors": "M",   # DOM-05
+#     "grid": "S"                # DOM-06
+# }

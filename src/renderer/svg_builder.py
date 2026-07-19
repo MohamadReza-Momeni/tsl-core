@@ -59,13 +59,21 @@ class SVGRenderer:
                 '    </g>'
             ])
 
-        # 2. Base Geometry
+    # 2. Domain Indicator Badge (Top Right)
+        # We replace the old background geometry with a clean, high-contrast Persian letter badge
         geometry_type = ris.get("geometry", {}).get("type")
-        if geometry_type:
-            geom_path = os.path.join(self.assets_dir, "geometries", f"{geometry_type}.svg")
-            geom_content = AssetProcessor.extract_and_restyle(geom_path, "#FFFFFF", 0)
-            if geom_content:
-                final_svg.extend(['    ', f'    <g opacity="0.4">\n      {geom_content}\n    </g>'])
+        if geometry_type and geometry_type in DOMAIN_BADGES:
+            domain_letter = DOMAIN_BADGES[geometry_type]
+            
+            final_svg.extend([
+                '    ',
+                '    <!-- Domain Indicator Badge -->',
+                '    <g transform="translate(85, 15)">',
+                '      <circle cx="0" cy="0" r="14" fill="#FFFFFF" stroke="#000000" stroke-width="4"/>',
+                # Y is set to 5 to vertically center the text inside the circle
+                f'      <text x="0" y="5" font-family="Tahoma, Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000" text-anchor="middle">{domain_letter}</text>',
+                '    </g>'
+            ])
 
         # 3. Mechanism Glyphs
         final_svg.append('    ')

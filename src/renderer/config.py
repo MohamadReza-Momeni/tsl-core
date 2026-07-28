@@ -1,16 +1,35 @@
+# src/renderer/config.py
+
 """
 Global rendering configuration for TSL-Core.
 """
 
-# Mathematically calculated to avoid all frame borders (especially Diamond) 
-# and guarantee zero overlap between multiple mechanisms.
-ZONES = {
-    "center": {"x": 32, "y": 32, "scale": 0.36}, # Occupies X: 32-68, Y: 32-68
-    "north":  {"x": 41, "y": 14, "scale": 0.18}, # Occupies X: 41-59, Y: 14-32
-    "south":  {"x": 41, "y": 68, "scale": 0.18}  # Occupies X: 41-59, Y: 68-86
+# Dynamic zone layouts based on the number of mechanisms (glyphs) present.
+# Mathematically aligned to avoid the Diamond frame borders with zero overlap.
+# Dynamic zone layouts based on the number of mechanisms (glyphs) present.
+# Mathematically aligned to avoid the Diamond frame borders with zero overlap.
+ZONES_BY_COUNT = {
+    1: {
+        # 1 MEC: Massive 40x40 perfectly centered.
+        "center": {"x": 30, "y": 30, "scale": 0.40}, 
+        "north":  {"x": 30, "y": 30, "scale": 0.40}, # Fallback
+        "south":  {"x": 30, "y": 30, "scale": 0.40}  # Fallback
+    },
+    2: {
+        # 2 MECs: Primary is visibly larger (34px) and anchors the bottom. 
+        # Secondary is smaller (26px) and sits perfectly on top of it.
+        "center": {"x": 33, "y": 44, "scale": 0.34}, # Occupies X: 33-67, Y: 44-78
+        "north":  {"x": 37, "y": 18, "scale": 0.26}, # Occupies X: 37-63, Y: 18-44
+        "south":  {"x": 33, "y": 44, "scale": 0.34}  # Fallback
+    },
+    3: {
+        # 3 MECs: Pushed to absolute limits. 24x24 center, 22x22 extremities.
+        "center": {"x": 38, "y": 38, "scale": 0.24}, 
+        "north":  {"x": 39, "y": 16, "scale": 0.22}, 
+        "south":  {"x": 39, "y": 62, "scale": 0.22}  
+    }
 }
 
-# Advanced Halo Stacking: Black dashes start 2px earlier and end 2px later to cap the ends!
 BORDER_STYLES = {
     "solid": {
         "black": "",
@@ -27,16 +46,10 @@ BORDER_STYLES = {
 }
 
 SEVERITY_COLORS = {
-    1: "#FFFFFF",
-    2: "#FFE300",
-    3: "#FF8400",
-    4: "#FF0000",
-    5: "#870000",
-    6: "#400000"
+    1: "#FFFFFF", 2: "#FFE300", 3: "#FF8400",
+    4: "#FF0000", 5: "#870000", 6: "#400000"
 }
 
-# Add this mapping to your config.py
-# Maps the existing geometry types to their corresponding Persian Domain Letter
 DOMAIN_BADGES = {
     "radial_network": "ط",     # DOM-01
     "bar_stack": "س",          # DOM-02
@@ -45,12 +58,3 @@ DOMAIN_BADGES = {
     "directed_vectors": "ن",   # DOM-05
     "grid": "ج"                # DOM-06
 }
-
-# DOMAIN_BADGES = {
-#     "radial_network": "I",     # DOM-01
-#     "bar_stack": "C",          # DOM-02
-#     "connected_chain": "E",    # DOM-03
-#     "population_cluster": "D", # DOM-04
-#     "directed_vectors": "M",   # DOM-05
-#     "grid": "S"                # DOM-06
-# }

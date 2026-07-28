@@ -2,3 +2,7 @@
 Domain is not visible
 Icon parts shouldn't overlay each other.
 Check for military conflicts. 
+
+دومین بالا سمت راست بهتره.
+دومین بالایی دیده نمی‌شه
+اضافه کردن intent

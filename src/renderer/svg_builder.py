@@ -1,7 +1,7 @@
 import json
 import os
 from .asset_processor import AssetProcessor
-from .config import ZONES, BORDER_STYLES, SEVERITY_COLORS, DOMAIN_BADGES
+from .config import ZONES_BY_COUNT, BORDER_STYLES, SEVERITY_COLORS, DOMAIN_BADGES
 
 class SVGRenderer:
     """
@@ -22,6 +22,7 @@ class SVGRenderer:
         severity = ris.get("amplifier", {}).get("severity", 1)
         threat_color = SEVERITY_COLORS.get(severity, "#FFFFFF")
         
+        # 1. Initialize Canvas (Standard 100x100 viewBox)
         final_svg = [
             '<?xml version="1.0" encoding="UTF-8"?>',
             '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="400" height="400" overflow="visible">',
@@ -29,38 +30,24 @@ class SVGRenderer:
             '  <g class="tsl-threat">' 
         ]
 
-        # 1. Actor Frame
+        # 2. Actor Frame (Multi-layer for Halo Dashes)
         frame_shape = ris.get("frame", {}).get("shape", "rectangle")
         border_type = ris.get("frame", {}).get("border", "solid")
         dash_styles = BORDER_STYLES.get(border_type, BORDER_STYLES["solid"])
         
         frame_path = os.path.join(self.assets_dir, "frames", f"frame_{frame_shape}.svg")
-        
-        # Layer Base: Just the solid background fill. Removing the stroke entirely stops it from bleeding through gaps.
         frame_fill = AssetProcessor.extract_and_restyle(frame_path, fill_override="currentColor", stroke_override="none")
-        
-        # Layer A: Thick black stroke (acts as the inner/outer/cap outline). Fill is removed so it doesn't double-draw.
         frame_outline = AssetProcessor.extract_and_restyle(frame_path, stroke_override="#000000", width_modifier=4, fill_override="none")
-        
-        # Layer B: Standard white stroke (the core of the border). Fill is removed.
         frame_core = AssetProcessor.extract_and_restyle(frame_path, stroke_override="#FFFFFF", width_modifier=0, fill_override="none")
         
         if frame_fill and frame_outline and frame_core:
             final_svg.extend([
-                '    ',
-                f'    <g>',
-                f'      {frame_fill}',
-                '    </g>',
-                f'    <g {dash_styles["black"]}>',
-                f'      {frame_outline}',
-                '    </g>',
-                f'    <g {dash_styles["white"]}>',
-                f'      {frame_core}',
-                '    </g>'
+                '    ', f'    <g>', f'      {frame_fill}', '    </g>',
+                f'    <g {dash_styles["black"]}>', f'      {frame_outline}', '    </g>',
+                f'    <g {dash_styles["white"]}>', f'      {frame_core}', '    </g>'
             ])
 
-    # 2. Domain Indicator Badge (Top Right)
-        # We replace the old background geometry with a clean, high-contrast Persian letter badge
+        # 3. Domain Indicator Badge (Top Right)
         geometry_type = ris.get("geometry", {}).get("type")
         if geometry_type and geometry_type in DOMAIN_BADGES:
             domain_letter = DOMAIN_BADGES[geometry_type]
@@ -70,20 +57,23 @@ class SVGRenderer:
                 '    <!-- Domain Indicator Badge -->',
                 '    <g transform="translate(85, 15)">',
                 '      <circle cx="0" cy="0" r="14" fill="#FFFFFF" stroke="#000000" stroke-width="4"/>',
-                # Y is set to 5 to vertically center the text inside the circle
                 f'      <text x="0" y="5" font-family="Tahoma, Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000" text-anchor="middle">{domain_letter}</text>',
                 '    </g>'
             ])
 
-        # 3. Mechanism Glyphs
+        # 4. Mechanism Glyphs (Dynamically Scaled based on count)
         final_svg.append('    ')
-        for glyph in sorted(ris.get("glyphs", []), key=lambda x: x.get("priority", 99)):
+        glyphs = sorted(ris.get("glyphs", []), key=lambda x: x.get("priority", 99))
+        glyph_count = max(1, min(len(glyphs), 3)) # Ensure it maps to 1, 2, or 3
+        active_zones = ZONES_BY_COUNT[glyph_count]
+        
+        for glyph in glyphs:
             glyph_path = os.path.join(self.assets_dir, "glyphs", f"{glyph.get('type')}.svg")
             glyph_outline = AssetProcessor.extract_and_restyle(glyph_path, "#000000", 4)
             glyph_core = AssetProcessor.extract_and_restyle(glyph_path, "#FFFFFF", -1)
             
             if glyph_outline and glyph_core:
-                z = ZONES.get(glyph.get("zone", "center"))
+                z = active_zones.get(glyph.get("zone", "center"))
                 transform = f"translate({z['x']}, {z['y']}) scale({z['scale']})"
                 final_svg.extend([
                     f'    <g transform="{transform}">',
@@ -92,7 +82,7 @@ class SVGRenderer:
                     '    </g>'
                 ])
 
-        # 4. Intent Modifier
+        # 5. Intent Modifier
         modifier_type = ris.get("modifier", {}).get("type", "none")
         if modifier_type and modifier_type != "none":
             mod_path = os.path.join(self.assets_dir, "modifiers", f"{modifier_type}.svg")

@@ -4,7 +4,7 @@ import html
 
 def generate_dashboard():
     # Setup paths
-    csv_path = "data/catalogs/TSL-104_Threat_Catalog_v3.csv"
+    csv_path = "data/catalogs/TSL-104_Threat_Catalog_v6.csv"
     template_path = "templates/dashboard_template.html"
     output_html = "output/dashboard.html"
     renders_dir = "renders"  

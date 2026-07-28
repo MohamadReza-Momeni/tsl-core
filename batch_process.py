@@ -6,7 +6,7 @@ from src.renderer.svg_builder import SVGRenderer
 
 def run_batch():
     # Setup
-    csv_path = "data/catalogs/TSL-104_Threat_Catalog_v3.csv"
+    csv_path = "data/catalogs/TSL-104_Threat_Catalog_v6.csv"
     compiler = TSLCompiler()
     renderer = SVGRenderer()
     

@@ -97,7 +97,7 @@ If collisions are found, you can manually fix the data or run `python resolve_co
 
 ### 4. Run the Batch Processor
 
-Ensure your primary intelligence catalog (e.g., `TSL-104_Threat_Catalog_v3.csv`) is in the `data/catalogs/` directory. Run the batch compiler:
+Ensure your primary intelligence catalog (e.g., `TSL-104_Threat_Catalog_v4.csv`) is in the `data/catalogs/` directory. Run the batch compiler:
 
 ```bash
 python batch_process.py

@@ -51,9 +51,9 @@ RAW_GLYPHS = {
 
     # === DOMAIN 5: MILITARY & PHYSICAL ===
     "kinetic_strike": '<path d="M 20,80 L 80,20 M 60,20 L 80,20 L 80,40"/><path d="M 30,70 L 15,85 L 25,95 L 40,80 Z"/>', 
-    "sabotage": '<path d="M 30,30 L 70,70 M 70,30 L 30,70"/>', 
+    "sabotage": '<line x1="20" y1="50" x2="40" y2="50"/><line x1="60" y1="50" x2="80" y2="50"/><line x1="45" y1="30" x2="55" y2="70"/>',
     "espionage": '<path d="M 15,50 Q 50,20 85,50 Q 50,80 15,50 Z"/><circle cx="50" cy="50" r="12"/>', 
-    "force_projection": '<polyline points="20,20 60,50 20,80"/><polyline points="40,20 80,50 40,80"/>', 
+    "force_projection": '<line x1="75" y1="20" x2="75" y2="80"/><polyline points="35,30 60,50 35,70"/><line x1="15" y1="50" x2="60" y2="50"/>', 
     "undeclared_gray_zone_action": '<rect x="20" y="20" width="60" height="60" stroke-dasharray="4 4"/><path d="M 40,40 C 40,30 60,30 60,40 C 60,50 50,50 50,60"/><circle cx="50" cy="70" r="2" fill="#000000"/>', 
     "proxy_warfare_support": '<circle cx="35" cy="50" r="10"/><circle cx="65" cy="50" r="10"/><line x1="35" y1="20" x2="35" y2="40" stroke-dasharray="2 2"/><line x1="65" y1="20" x2="65" y2="40" stroke-dasharray="2 2"/>', 
 

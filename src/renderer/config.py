@@ -52,9 +52,9 @@ SEVERITY_COLORS = {
 
 DOMAIN_BADGES = {
     "radial_network": "ط",     # DOM-01
-    "bar_stack": "س",          # DOM-02
-    "connected_chain": "ق",    # DOM-03
-    "population_cluster": "د", # DOM-04
+    "bar_stack": "ق",          # DOM-02
+    "connected_chain": "س",    # DOM-03
+    "population_cluster": "ج", # DOM-04
     "directed_vectors": "ن",   # DOM-05
-    "grid": "ج"                # DOM-06
+    "grid": "ز"                # DOM-06
 }
